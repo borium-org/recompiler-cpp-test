@@ -27,11 +27,11 @@ namespace java::lang
 			//		TRACE("Pointer::Pointer(%p): pointer = %p\n", this, pointer);
 			assign(data);
 		}
-		//	Pointer(const Pointer<T>& other)
-		//	{
-		//		pointer = nullptr;
-		//		assign((T*)other.pointer);
-		//	}
+		Pointer(const Pointer<T>& other)
+		{
+			pointer = nullptr;
+			assign((T*)other.pointer);
+		}
 		void operator = (const Pointer<T>& other)
 		{
 			assign((T*)other.pointer);
@@ -154,9 +154,17 @@ namespace java::lang
 			// TODO
 			return createString(result.c_str());
 		}
+		void Trace(const std::string& name, const std::string& file, int line)
+		{
+			std::cout << "Object \"" << name << "\" at " << this;
+			if (this)
+				std::cout << " Usage " << usageCounter;
+			std::cout << "\n";
+		}
 	protected:
 		Pointer<Class> __thisClass;
-	private:
+		//private:
+	public:
 		int usageCounter;
 	};
 
@@ -189,6 +197,24 @@ namespace java::lang
 			return data[index];
 		}
 		int length;
+		void Trace(const std::string& name, const std::string& file, int line)
+		{
+			std::cout << "JavaArray \"" << name << "\" at " << this;
+			if (this)
+				std::cout << " Usage " << usageCounter;
+			std::cout << "\n";
+			if (this)
+			{
+				for (int i = 0; i < length; i++)
+				{
+					Pointer<T> element = get(i);
+					std::cout << "\tElement[" << i << "] at " << element.getValue();
+					if (element.getValue())
+						std::cout << " Usage " << element->usageCounter;
+					std::cout << "\n";
+				}
+			}
+		}
 	private:
 		std::vector<Pointer<T>> data;
 	};
@@ -214,9 +240,7 @@ namespace java::lang
 		std::vector<T> data;
 	};
 
-	template<class T> T GetStatic(void(*classInit)(), T field)
-	{
-		classInit();
-		return field;
-	}
 }
+
+#define TRACE_ARRAY(var) var->Trace(#var, __FILE__, __LINE__)
+#define TRACE_OBJECT(var) var->Trace(#var, __FILE__, __LINE__)

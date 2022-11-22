@@ -16,8 +16,8 @@ namespace java::io
 		{
 			if (ofs)
 				delete ofs;
-			else if (os)
-				delete os;
+			//else if (os)
+			//	delete os;
 		}
 		virtual void close()
 		{

@@ -151,7 +151,8 @@ namespace org::borium::javarecompiler
 	L011D: //
 		if ((argc_004B) < (args->length))
 			goto L004E;
-		GetStatic(System::__ClassInit, System::out)->println(createString("Done."));
+		System::__ClassInit();
+		System::out->println(createString("Done."));
 		return;
 	}
 
