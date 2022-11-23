@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "org__borium__javarecompiler__Recompiler.h"
+#include "org__borium__javarecompiler__Recomp.h"
 #include "java__lang__Class.h"
 #include "java__lang__String.h"
 
@@ -18,15 +18,15 @@ using namespace java::util;
 namespace org::borium::javarecompiler
 {
 
-	Pointer<Class> Recompiler::__thisClassStatic;
+	Pointer<Class> Recomp::__thisClassStatic;
 
-	bool Recompiler::instructionComments;
-	bool Recompiler::stackComments;
-	bool Recompiler::dumpInstructions;
-	bool Recompiler::dumpStatements;
-	Pointer<HashMap<String, String>> Recompiler::simpleClassNames;
+	bool Recomp::instructionComments;
+	bool Recomp::stackComments;
+	bool Recomp::dumpInstructions;
+	bool Recomp::dumpStatements;
+	Pointer<HashMap<String, String>> Recomp::simpleClassNames;
 
-	void Recompiler::__ClassInit()
+	void Recomp::__ClassInit()
 	{
 		static bool classInitialized = false;
 		if (classInitialized)
@@ -34,21 +34,21 @@ namespace org::borium::javarecompiler
 		classInitialized = true;
 
 		__thisClassStatic = new Class(
-			"org::borium::javarecompiler::Recompiler",
+			"org::borium::javarecompiler::Recomp",
 			java::lang::Object::__thisClassStatic);
 
 		Pointer<HashMap<Object, Object>> temp_0014;
 		Object::__ClassInit();
-		Recompiler::instructionComments = false;
-		Recompiler::stackComments = false;
-		Recompiler::dumpInstructions = false;
-		Recompiler::dumpStatements = false;
+		Recomp::instructionComments = false;
+		Recomp::stackComments = false;
+		Recomp::dumpInstructions = false;
+		Recomp::dumpStatements = false;
 		temp_0014 = new HashMap<Object, Object>();
-		Recompiler::simpleClassNames = (HashMap<String, String>*)temp_0014.getValue();
+		Recomp::simpleClassNames = (HashMap<String, String>*)temp_0014.getValue();
 		return;
 	}
 
-	Recompiler::Recompiler() :
+	Recomp::Recomp() :
 		Object() //
 	{
 		__ClassInit();
@@ -60,14 +60,14 @@ namespace org::borium::javarecompiler
 		return;
 	}
 
-	void Recompiler::main(Pointer<JavaArray<String>> args)
+	void Recomp::main(Pointer<JavaArray<String>> args)
 	{
 		__ClassInit();
 
-		Pointer<Recompiler> recompiler_0049;
+		Pointer<Recomp> recompiler_0049;
 		int argc_004B = 0;
 		Pointer<JavaArray<String>> temp_0007;
-		Pointer<Recompiler> temp_0045;
+		Pointer<Recomp> temp_0045;
 		Pointer<String> local_0052;
 		Pointer<StringBuilder> temp_010A;
 		Pointer<RuntimeException> temp_0116;
@@ -79,14 +79,14 @@ namespace org::borium::javarecompiler
 		temp_0007->assign(2, createString("-outputpath"));
 		temp_0007->assign(3, createString("../recompiler-cpp-test"));
 		temp_0007->assign(4, createString("-mainclass"));
-		temp_0007->assign(5, createString("org.borium.javarecompiler.Recompiler"));
+		temp_0007->assign(5, createString("org.borium.javarecompiler.Recomp"));
 		temp_0007->assign(6, createString("-vs"));
 		temp_0007->assign(7, createString("2005"));
 		temp_0007->assign(8, createString("-comments"));
 		temp_0007->assign(9, createString("all"));
 		args = (JavaArray<String>*)(temp_0007.getValue());
 	L0041: //
-		temp_0045 = new Recompiler();
+		temp_0045 = new Recomp();
 		recompiler_0049 = temp_0045;
 		argc_004B = 0;
 		goto L011D;
@@ -151,18 +151,28 @@ namespace org::borium::javarecompiler
 	L011D: //
 		if ((argc_004B) < (args->length))
 			goto L004E;
+		recompiler_0049->run();
 		System::__ClassInit();
 		System::out->println(createString("Done."));
 		return;
 	}
 
-	void Recompiler::addClassPath(Pointer<String> classPath)
+	void Recomp::addClassPath(Pointer<String> classPath)
 	{
 		this->classPaths->add(classPath.getValue());
 		return;
 	}
 
-	void Recompiler::setMainClass(Pointer<String> mainClass)
+	void Recomp::run()
+	{
+		Pointer<StringBuilder> temp_0009;
+		System::__ClassInit();
+		temp_0009 = new StringBuilder(createString("Processing "));
+		System::out->println(temp_0009->append(this->mainClass)->toString());
+		return;
+	}
+
+	void Recomp::setMainClass(Pointer<String> mainClass)
 	{
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
@@ -176,7 +186,7 @@ namespace org::borium::javarecompiler
 		return;
 	}
 
-	void Recompiler::setOutputPath(Pointer<String> outputPath)
+	void Recomp::setOutputPath(Pointer<String> outputPath)
 	{
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
@@ -190,7 +200,7 @@ namespace org::borium::javarecompiler
 		return;
 	}
 
-	void Recompiler::setVisualStudio(Pointer<String> visualStudio)
+	void Recomp::setVisualStudio(Pointer<String> visualStudio)
 	{
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
@@ -204,7 +214,7 @@ namespace org::borium::javarecompiler
 		return;
 	}
 
-	void Recompiler::setCommentLevel(Pointer<String> commentLevel)
+	void Recomp::setCommentLevel(Pointer<String> commentLevel)
 	{
 		Pointer<String> local_0002;
 		Pointer<StringBuilder> temp_0058;
@@ -228,16 +238,16 @@ namespace org::borium::javarecompiler
 			goto L0043;
 		goto L004E;
 	L0038: //
-		Recompiler::__ClassInit();
-		Recompiler::instructionComments = true;
-		Recompiler::__ClassInit();
-		Recompiler::stackComments = true;
+		Recomp::__ClassInit();
+		Recomp::instructionComments = true;
+		Recomp::__ClassInit();
+		Recomp::stackComments = true;
 		goto L0066;
 	L0043: //
-		Recompiler::__ClassInit();
-		Recompiler::instructionComments = false;
-		Recompiler::__ClassInit();
-		Recompiler::stackComments = false;
+		Recomp::__ClassInit();
+		Recomp::instructionComments = false;
+		Recomp::__ClassInit();
+		Recomp::stackComments = false;
 		goto L0066;
 	L004E: //
 		temp_0058 = new StringBuilder(createString("Unsupported comment level "));

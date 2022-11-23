@@ -42,9 +42,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__Recompiler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="java__io__PrintStream.h">
       <Filter>Header Files\java.io</Filter>
     </ClInclude>
@@ -90,15 +87,15 @@
     <ClInclude Include="java__util__NoSuchElementException.h">
       <Filter>Header Files\java.util</Filter>
     </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__Recomp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__Recompiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="java__io__PrintStream.cpp">
@@ -124,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="java__lang__System.cpp">
       <Filter>Source Files\java.lang</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__Recomp.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

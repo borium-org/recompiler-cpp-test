@@ -29,7 +29,7 @@ using namespace java::util;
 namespace org::borium::javarecompiler
 {
 
-	class Recompiler : public Object
+	class Recomp : public Object
 	{
 	public:
 		static Pointer<Class> __thisClassStatic;
@@ -46,9 +46,10 @@ namespace org::borium::javarecompiler
 		Pointer<String> visualStudio;
 
 		static void __ClassInit();
-		Recompiler();
+		Recomp();
 		static void main(Pointer<JavaArray<String>> args);
 		virtual void addClassPath(Pointer<String> classPath);
+		virtual void run();
 		virtual void setMainClass(Pointer<String> mainClass);
 		virtual void setOutputPath(Pointer<String> outputPath);
 		virtual void setVisualStudio(Pointer<String> visualStudio);

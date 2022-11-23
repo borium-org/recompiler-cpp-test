@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "recompiler-cpp-test.h"
 #include "java__lang__String.h"
-#include "org__borium__javarecompiler__Recompiler.h"
+#include "org__borium__javarecompiler__Recomp.h"
 
 //using namespace java::lang;
 
@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	Pointer<JavaArray<String>> args = new JavaArray<String>(argc - 1);
 	for (int i = 1; i < argc; i++)
 		args[i - 1] = new String(argv[i]);
-	Recompiler::__ClassInit();
-	Recompiler::main(args);
+	Recomp::__ClassInit();
+	Recomp::main(args);
 	return nRetCode;
 }

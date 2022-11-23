@@ -167,7 +167,7 @@
     <ClInclude Include="java__util__List.h" />
     <ClInclude Include="java__util__Map.h" />
     <ClInclude Include="java__util__NoSuchElementException.h" />
-    <ClInclude Include="org__borium__javarecompiler__Recompiler.h" />
+    <ClInclude Include="org__borium__javarecompiler__Recomp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="recompiler-cpp-test.h" />
     <ClInclude Include="Resource.h" />
@@ -182,7 +182,7 @@
     <ClCompile Include="java__lang__String.cpp" />
     <ClCompile Include="java__lang__StringBuilder.cpp" />
     <ClCompile Include="java__lang__System.cpp" />
-    <ClCompile Include="org__borium__javarecompiler__Recompiler.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__Recomp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
