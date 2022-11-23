@@ -12,6 +12,7 @@ namespace java::lang
 	class ClassFormatError;
 	class Object;
 	class String;
+	class StringBuilder;
 }
 
 using namespace java::io;
@@ -26,6 +27,7 @@ namespace org::borium::javarecompiler::classfile
 		static Pointer<Class> __thisClassStatic;
 
 	public:
+		Pointer<String> className;
 
 		static void __ClassInit();
 		ClassFile();
