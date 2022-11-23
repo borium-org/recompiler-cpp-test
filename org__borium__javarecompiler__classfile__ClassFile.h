@@ -4,6 +4,8 @@
 
 namespace java::io
 {
+	class DataInputStream;
+	class FileInputStream;
 	class IOException;
 }
 

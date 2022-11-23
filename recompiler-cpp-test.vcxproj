@@ -152,7 +152,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="java__io__DataInputStream.h" />
     <ClInclude Include="java__io__File.h" />
+    <ClInclude Include="java__io__FileInputStream.h" />
     <ClInclude Include="java__io__IOException.h" />
     <ClInclude Include="java__io__PrintStream.h" />
     <ClInclude Include="java__lang__Class.h" />

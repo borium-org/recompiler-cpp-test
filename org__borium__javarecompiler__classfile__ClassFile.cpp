@@ -3,6 +3,8 @@
 #include "java__lang__Class.h"
 #include "java__lang__String.h"
 
+#include "java__io__DataInputStream.h"
+#include "java__io__FileInputStream.h"
 #include "java__io__IOException.h"
 #include "java__lang__ClassFormatError.h"
 #include "java__lang__String.h"
@@ -44,7 +46,12 @@ namespace org::borium::javarecompiler::classfile
 		Pointer<JavaArray<String>> directories_0007;
 		int index_0009 = 0;
 		Pointer<String> classFileName_0032;
+		Pointer<DataInputStream> dataIn_0091;
+		Pointer<JavaRawArray<byte>> data_009A;
 		Pointer<StringBuilder> temp_003E;
+		Pointer<FileInputStream> temp_0089;
+		Pointer<DataInputStream> temp_008C;
+		Pointer<JavaRawArray<byte>> temp_0096;
 		directories_0007 = (JavaArray<String>*)(fileName->split(createString("[/]")).getValue());
 		index_0009 = 0;
 		goto L0020;
@@ -74,6 +81,13 @@ namespace org::borium::javarecompiler::classfile
 		if ((index_0009) < (directories_0007->length))
 			goto L0035;
 		this->className = classFileName_0032->substring(0, (classFileName_0032->length()) - (6))->replace('/', '.').getValue();
+		temp_0089 = new FileInputStream(fileName);
+		temp_008C = new DataInputStream(temp_0089.getValue());
+		dataIn_0091 = temp_008C;
+		temp_0096 = new JavaRawArray<byte>(dataIn_0091->available());
+		data_009A = (JavaRawArray<byte>*)(temp_0096.getValue());
+		dataIn_0091->read(data_009A);
+		dataIn_0091->close();
 		return;
 	}
 

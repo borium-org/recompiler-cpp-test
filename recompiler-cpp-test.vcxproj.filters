@@ -111,6 +111,12 @@
     <ClInclude Include="java__lang__Exception.h">
       <Filter>Header Files\java.lang</Filter>
     </ClInclude>
+    <ClInclude Include="java__io__DataInputStream.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__FileInputStream.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">
