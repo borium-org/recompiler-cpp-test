@@ -3,6 +3,7 @@
 #include "java__lang__Class.h"
 #include "java__lang__String.h"
 
+#include "java__io__File.h"
 #include "java__io__PrintStream.h"
 #include "java__lang__RuntimeException.h"
 #include "java__lang__String.h"
@@ -10,10 +11,13 @@
 #include "java__lang__System.h"
 #include "java__util__ArrayList.h"
 #include "java__util__HashMap.h"
+#include "java__util__Iterator.h"
+#include "org__borium__javarecompiler__classfile__ClassFile.h"
 
 using namespace java::io;
 using namespace java::lang;
 using namespace java::util;
+using namespace org::borium::javarecompiler::classfile;
 
 namespace org::borium::javarecompiler
 {
@@ -165,10 +169,12 @@ namespace org::borium::javarecompiler
 
 	void Recomp::run()
 	{
+		Pointer<ClassFile> classFile_0022;
 		Pointer<StringBuilder> temp_0009;
 		System::__ClassInit();
 		temp_0009 = new StringBuilder(createString("Processing "));
 		System::out->println(temp_0009->append(this->mainClass)->toString());
+		classFile_0022 = this->processClassFile(this->mainClass);
 		return;
 	}
 
@@ -212,6 +218,70 @@ namespace org::borium::javarecompiler
 	L0030: //
 		this->visualStudio = visualStudio.getValue();
 		return;
+	}
+
+	Pointer<ClassFile> Recomp::processClassFile(Pointer<String> classFileName)
+	{
+		Pointer<String> classPathFileName_0026;
+		Pointer<String> fileName_0028;
+		Pointer<String> classPath_0040;
+		Pointer<File> file_0061;
+		Pointer<ClassFile> classFile_00D7;
+		Pointer<StringBuilder> temp_001A;
+		Pointer<Iterator> local_002F;
+		Pointer<String> temp_003B;
+		Pointer<StringBuilder> temp_004D;
+		Pointer<File> temp_005C;
+		Pointer<StringBuilder> temp_007A;
+		Pointer<StringBuilder> temp_00A4;
+		Pointer<StringBuilder> temp_00BB;
+		Pointer<RuntimeException> temp_00CA;
+		Pointer<ClassFile> temp_00D2;
+		if (!(classFileName->startsWith(createString("java."))))
+			goto L000B;
+		// ARETURN: Type mismatch
+		return (ClassFile*)nullptr;
+	L000B: //
+		String::__ClassInit();
+		temp_001A = new StringBuilder(String::valueOf(classFileName->replace('.', '/').getValue()));
+		classPathFileName_0026 = temp_001A->append(createString(".class"))->toString();
+		fileName_0028 = nullptr;
+		local_002F = this->classPaths->iterator();
+		goto L008D;
+	L0034: //
+		temp_003B = (String*)((local_002F->next()).getValue());
+		temp_003B->checkCast(String::__thisClassStatic);
+		classPath_0040 = temp_003B;
+		String::__ClassInit();
+		temp_004D = new StringBuilder(String::valueOf(classPath_0040.getValue()));
+		temp_005C = new File(temp_004D->append(createString("/"))->append(classPathFileName_0026)->toString());
+		file_0061 = temp_005C;
+		if (!(file_0061->exists()))
+			goto L008D;
+		if (!(file_0061->isFile()))
+			goto L008D;
+		String::__ClassInit();
+		temp_007A = new StringBuilder(String::valueOf(classPath_0040.getValue()));
+		fileName_0028 = temp_007A->append(createString("/"))->append(classPathFileName_0026)->toString();
+		goto L0097;
+	L008D: //
+		if (local_002F->hasNext())
+			goto L0034;
+	L0097: //
+		if ((fileName_0028).getValue() != nullptr)
+			goto L00CE;
+		System::__ClassInit();
+		temp_00A4 = new StringBuilder(createString("Error: "));
+		System::out->println(temp_00A4->append(classFileName)->toString());
+		temp_00BB = new StringBuilder(createString("Class "));
+		temp_00CA = new RuntimeException(temp_00BB->append(classFileName)->append(createString(" not found"))->toString());
+		throw temp_00CA;
+	L00CE: //
+		temp_00D2 = new ClassFile();
+		classFile_00D7 = temp_00D2;
+		System::__ClassInit();
+		System::out->println(createString("Read complete"));
+		return classFile_00D7;
 	}
 
 	void Recomp::setCommentLevel(Pointer<String> commentLevel)

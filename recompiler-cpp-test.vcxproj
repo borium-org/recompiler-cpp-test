@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="java__io__File.h" />
     <ClInclude Include="java__io__PrintStream.h" />
     <ClInclude Include="java__lang__Class.h" />
     <ClInclude Include="java__lang__Double.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="java__util__List.h" />
     <ClInclude Include="java__util__Map.h" />
     <ClInclude Include="java__util__NoSuchElementException.h" />
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h" />
     <ClInclude Include="org__borium__javarecompiler__Recomp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="recompiler-cpp-test.h" />
@@ -174,6 +176,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="java__io__File.cpp" />
     <ClCompile Include="java__io__PrintStream.cpp" />
     <ClCompile Include="java__lang__Class.cpp" />
     <ClCompile Include="java__lang__Double.cpp" />
@@ -182,6 +185,7 @@
     <ClCompile Include="java__lang__String.cpp" />
     <ClCompile Include="java__lang__StringBuilder.cpp" />
     <ClCompile Include="java__lang__System.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp" />
     <ClCompile Include="org__borium__javarecompiler__Recomp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

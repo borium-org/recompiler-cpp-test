@@ -137,7 +137,7 @@ namespace java::lang
 		}
 		virtual void checkCast(Pointer<Class> clazz)
 		{
-			throw new std::exception("CheckCast not implemented");
+			//TODO throw new std::exception("CheckCast not implemented");
 		}
 		virtual bool instanceOf(Pointer<Class> clazz)
 		{

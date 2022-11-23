@@ -28,6 +28,12 @@
     <Filter Include="Source Files\java.lang">
       <UniqueIdentifier>{061ad38d-63c0-4c03-81b6-c08886743afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\org.borium.javarecompiler.classfile">
+      <UniqueIdentifier>{a46aba5e-21d8-44d6-9a9a-4cb5a3add28f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\org.borium.javarecompiler.classfile">
+      <UniqueIdentifier>{a7f13fe1-d4bd-4777-82e6-3f27ed37cad4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -90,6 +96,12 @@
     <ClInclude Include="org__borium__javarecompiler__Recomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__File.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">
@@ -124,6 +136,12 @@
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__Recomp.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="java__io__File.cpp">
+      <Filter>Source Files\java.io</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
