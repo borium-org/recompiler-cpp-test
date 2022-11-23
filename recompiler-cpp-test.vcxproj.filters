@@ -102,6 +102,15 @@
     <ClInclude Include="java__io__File.h">
       <Filter>Header Files\java.io</Filter>
     </ClInclude>
+    <ClInclude Include="java__io__IOException.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__ClassFormatError.h">
+      <Filter>Header Files\java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Exception.h">
+      <Filter>Header Files\java.lang</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">

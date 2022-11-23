@@ -5,16 +5,19 @@
 namespace java::io
 {
 	class File;
+	class IOException;
 	class PrintStream;
 }
 
 namespace java::lang
 {
+	class ClassFormatError;
 	class Object;
 	class RuntimeException;
 	class String;
 	class StringBuilder;
 	class System;
+	class Throwable;
 }
 
 namespace java::util

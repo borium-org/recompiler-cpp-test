@@ -153,9 +153,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="java__io__File.h" />
+    <ClInclude Include="java__io__IOException.h" />
     <ClInclude Include="java__io__PrintStream.h" />
     <ClInclude Include="java__lang__Class.h" />
+    <ClInclude Include="java__lang__ClassFormatError.h" />
     <ClInclude Include="java__lang__Double.h" />
+    <ClInclude Include="java__lang__Exception.h" />
     <ClInclude Include="java__lang__Object.h" />
     <ClInclude Include="java__lang__RuntimeException.h" />
     <ClInclude Include="java__lang__String.h" />

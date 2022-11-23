@@ -3,6 +3,13 @@
 #include "java__lang__Class.h"
 #include "java__lang__String.h"
 
+#include "java__io__IOException.h"
+#include "java__lang__ClassFormatError.h"
+#include "java__lang__String.h"
+
+using namespace java::io;
+using namespace java::lang;
+
 namespace org::borium::javarecompiler::classfile
 {
 
@@ -28,6 +35,11 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		return;
+	}
+
+	void ClassFile::read(Pointer<String> fileName)
+	{
 		return;
 	}
 

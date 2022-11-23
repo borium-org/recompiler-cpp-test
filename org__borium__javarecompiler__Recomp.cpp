@@ -4,11 +4,14 @@
 #include "java__lang__String.h"
 
 #include "java__io__File.h"
+#include "java__io__IOException.h"
 #include "java__io__PrintStream.h"
+#include "java__lang__ClassFormatError.h"
 #include "java__lang__RuntimeException.h"
 #include "java__lang__String.h"
 #include "java__lang__StringBuilder.h"
 #include "java__lang__System.h"
+#include "java__lang__Throwable.h"
 #include "java__util__ArrayList.h"
 #include "java__util__HashMap.h"
 #include "java__util__Iterator.h"
@@ -279,6 +282,22 @@ namespace org::borium::javarecompiler
 	L00CE: //
 		temp_00D2 = new ClassFile();
 		classFile_00D7 = temp_00D2;
+	L00D7: //
+		try
+		{
+			classFile_00D7->read(fileName_0028);
+		L00DD: //
+			goto L00E7;
+		}
+		catch (ClassFormatError* e_00E2)
+		{
+			e_00E2->printStackTrace();
+		}
+		catch (IOException* e_00E2)
+		{
+			e_00E2->printStackTrace();
+		}
+	L00E7: //
 		System::__ClassInit();
 		System::out->println(createString("Read complete"));
 		return classFile_00D7;
