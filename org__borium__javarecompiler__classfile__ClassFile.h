@@ -17,8 +17,14 @@ namespace java::lang
 	class StringBuilder;
 }
 
+namespace org::borium::javarecompiler::classfile
+{
+	class ByteInputStream;
+}
+
 using namespace java::io;
 using namespace java::lang;
+using namespace org::borium::javarecompiler::classfile;
 
 namespace org::borium::javarecompiler::classfile
 {
@@ -29,11 +35,16 @@ namespace org::borium::javarecompiler::classfile
 		static Pointer<Class> __thisClassStatic;
 
 	public:
+		Pointer<ByteInputStream> in;
+		int majorVersion;
+		int minorVersion;
 		Pointer<String> className;
 
 		static void __ClassInit();
 		ClassFile();
 		virtual void read(Pointer<String> fileName);
+		virtual void readID();
+		virtual void readVersion();
 	};
 
 }

@@ -9,9 +9,11 @@
 #include "java__lang__ClassFormatError.h"
 #include "java__lang__String.h"
 #include "java__lang__StringBuilder.h"
+#include "org__borium__javarecompiler__classfile__ByteInputStream.h"
 
 using namespace java::io;
 using namespace java::lang;
+using namespace org::borium::javarecompiler::classfile;
 
 namespace org::borium::javarecompiler::classfile
 {
@@ -34,6 +36,8 @@ namespace org::borium::javarecompiler::classfile
 
 	ClassFile::ClassFile() :
 		Object() //
+		, majorVersion(0) //
+		, minorVersion(0) //
 	{
 		__ClassInit();
 		__thisClass = __thisClassStatic;
@@ -52,6 +56,7 @@ namespace org::borium::javarecompiler::classfile
 		Pointer<FileInputStream> temp_0089;
 		Pointer<DataInputStream> temp_008C;
 		Pointer<JavaRawArray<byte>> temp_0096;
+		Pointer<ByteInputStream> temp_00AE;
 		directories_0007 = (JavaArray<String>*)(fileName->split(createString("[/]")).getValue());
 		index_0009 = 0;
 		goto L0020;
@@ -88,6 +93,42 @@ namespace org::borium::javarecompiler::classfile
 		data_009A = (JavaRawArray<byte>*)(temp_0096.getValue());
 		dataIn_0091->read(data_009A);
 		dataIn_0091->close();
+		temp_00AE = new ByteInputStream(data_009A);
+		this->in = temp_00AE.getValue();
+		this->readID();
+		this->readVersion();
+		this->in->close();
+		return;
+	}
+
+	void ClassFile::readID()
+	{
+		int magic_0008 = 0;
+		Pointer<ClassFormatError> temp_0014;
+		magic_0008 = this->in->u4();
+		if ((magic_0008) == (-889275714))
+			goto L0018;
+		temp_0014 = new ClassFormatError(createString("CAFEBABE not found"));
+		throw temp_0014;
+	L0018: //
+		return;
+	}
+
+	void ClassFile::readVersion()
+	{
+		Pointer<StringBuilder> temp_0030;
+		Pointer<ClassFormatError> temp_0049;
+		this->minorVersion = this->in->u2();
+		this->majorVersion = this->in->u2();
+		if ((this->majorVersion) != (60))
+			goto L0026;
+		if ((this->minorVersion) == 0)
+			goto L004D;
+	L0026: //
+		temp_0030 = new StringBuilder(createString("Unsupported version "));
+		temp_0049 = new ClassFormatError(temp_0030->append(this->majorVersion)->append(createString(":"))->append(this->minorVersion)->toString());
+		throw temp_0049;
+	L004D: //
 		return;
 	}
 

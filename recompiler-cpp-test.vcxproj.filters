@@ -117,6 +117,18 @@
     <ClInclude Include="java__io__FileInputStream.h">
       <Filter>Header Files\java.io</Filter>
     </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ByteInputStream.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__ByteArrayInputStream.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__UnsupportedEncodingException.h">
+      <Filter>Header Files\java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Float.h">
+      <Filter>Header Files\java.lang</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">
@@ -157,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="java__io__File.cpp">
       <Filter>Source Files\java.io</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ByteInputStream.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

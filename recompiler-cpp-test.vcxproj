@@ -152,15 +152,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="java__io__ByteArrayInputStream.h" />
     <ClInclude Include="java__io__DataInputStream.h" />
     <ClInclude Include="java__io__File.h" />
     <ClInclude Include="java__io__FileInputStream.h" />
     <ClInclude Include="java__io__IOException.h" />
     <ClInclude Include="java__io__PrintStream.h" />
+    <ClInclude Include="java__io__UnsupportedEncodingException.h" />
     <ClInclude Include="java__lang__Class.h" />
     <ClInclude Include="java__lang__ClassFormatError.h" />
     <ClInclude Include="java__lang__Double.h" />
     <ClInclude Include="java__lang__Exception.h" />
+    <ClInclude Include="java__lang__Float.h" />
     <ClInclude Include="java__lang__Object.h" />
     <ClInclude Include="java__lang__RuntimeException.h" />
     <ClInclude Include="java__lang__String.h" />
@@ -173,6 +176,7 @@
     <ClInclude Include="java__util__List.h" />
     <ClInclude Include="java__util__Map.h" />
     <ClInclude Include="java__util__NoSuchElementException.h" />
+    <ClInclude Include="org__borium__javarecompiler__classfile__ByteInputStream.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h" />
     <ClInclude Include="org__borium__javarecompiler__Recomp.h" />
     <ClInclude Include="stdafx.h" />
@@ -190,6 +194,7 @@
     <ClCompile Include="java__lang__String.cpp" />
     <ClCompile Include="java__lang__StringBuilder.cpp" />
     <ClCompile Include="java__lang__System.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__classfile__ByteInputStream.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp" />
     <ClCompile Include="org__borium__javarecompiler__Recomp.cpp" />
     <ClCompile Include="stdafx.cpp">
