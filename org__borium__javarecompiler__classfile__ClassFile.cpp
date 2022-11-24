@@ -10,10 +10,12 @@
 #include "java__lang__String.h"
 #include "java__lang__StringBuilder.h"
 #include "org__borium__javarecompiler__classfile__ByteInputStream.h"
+#include "org__borium__javarecompiler__classfile__constants__ConstantPool.h"
 
 using namespace java::io;
 using namespace java::lang;
 using namespace org::borium::javarecompiler::classfile;
+using namespace org::borium::javarecompiler::classfile::constants;
 
 namespace org::borium::javarecompiler::classfile
 {
@@ -42,6 +44,9 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		Pointer<ConstantPool> temp_0009;
+		temp_0009 = new ConstantPool();
+		this->cp = temp_0009.getValue();
 		return;
 	}
 
@@ -97,7 +102,15 @@ namespace org::borium::javarecompiler::classfile
 		this->in = temp_00AE.getValue();
 		this->readID();
 		this->readVersion();
+		this->readConstants();
 		this->in->close();
+		return;
+	}
+
+	void ClassFile::readConstants()
+	{
+		this->cp->read(this->in);
+		this->cp->verify(this->majorVersion, this->minorVersion);
 		return;
 	}
 

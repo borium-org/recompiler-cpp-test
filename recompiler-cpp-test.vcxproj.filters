@@ -34,6 +34,12 @@
     <Filter Include="Source Files\org.borium.javarecompiler.classfile">
       <UniqueIdentifier>{a7f13fe1-d4bd-4777-82e6-3f27ed37cad4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\org.borium.javarecompiler.classfile.constants">
+      <UniqueIdentifier>{3d303476-375f-4e45-9c33-1bfbb33e7fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\org.borium.javarecompiler.classfile.constants">
+      <UniqueIdentifier>{f9ae4deb-4085-4247-ba31-14bfa732f662}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -129,6 +135,69 @@
     <ClInclude Include="java__lang__Float.h">
       <Filter>Header Files\java.lang</Filter>
     </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__Constant.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDynamic.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFieldrefInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFloat.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInteger.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInterfaceMethodrefInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInvokeDynamic.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantLong.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantModule.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPool.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.h">
+      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__Statics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Integer.h">
+      <Filter>Header Files\java.lang</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="recompiler-cpp-test.cpp">
@@ -172,6 +241,66 @@
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__ByteInputStream.cpp">
       <Filter>Source Files\org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPool.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantLong.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantModule.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__Constant.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantDynamic.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantFieldrefInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantFloat.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInteger.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInterfaceMethodrefInfo.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInvokeDynamic.cpp">
+      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__Statics.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
