@@ -11,24 +11,19 @@ namespace java::io
 	public:
 		ByteArrayInputStream(Pointer<JavaRawArray<byte>> bytes)
 		{
-			Pointer<String> data = new String(bytes, createString("UTF-8"));
-			CString string = data.getValue()->operator CString();
-			is.str(string.GetBuffer());
+			data = bytes->getData();
+			pos = 0;
 		}
 		virtual int available()
 		{
-			std::streampos pos = is.tellg();
-			is.seekg(0, is.end);
-			std::streampos end = is.tellg();
-			is.seekg(pos, is.beg);
-			return (int)(end - pos);
+			return (int)(data.size() - pos);
 		}
 		virtual void close()
 		{
 		}
 		virtual int read()
 		{
-			return is.get();
+			return data[pos++];
 		}
 		virtual void read(Pointer<JavaRawArray<byte>> data)
 		{
@@ -36,6 +31,7 @@ namespace java::io
 				data->assign(i, (byte)read());
 		}
 	private:
-		std::istringstream is;
+		std::vector<byte> data;
+		size_t pos;
 	};
 }

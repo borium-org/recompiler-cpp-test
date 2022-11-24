@@ -236,6 +236,10 @@ namespace java::lang
 			return data[index];
 		}
 		int length;
+		std::vector<T>& getData()
+		{
+			return data;
+		}
 	private:
 		std::vector<T> data;
 	};
