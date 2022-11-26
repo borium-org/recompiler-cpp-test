@@ -22,6 +22,8 @@ namespace java::lang
 
 	bool Object::instanceOf(Pointer<Class> clazz)
 	{
+		if (this == nullptr)
+			return false;
 		Pointer<String> thisClassName = __thisClass->getName();
 		Pointer<String> instClassName = clazz->getName();
 		if (thisClassName->equals(instClassName))

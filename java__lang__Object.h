@@ -139,7 +139,7 @@ namespace java::lang
 		{
 			//TODO throw new std::exception("CheckCast not implemented");
 		}
-		virtual bool instanceOf(Pointer<Class> clazz);
+		bool instanceOf(Pointer<Class> clazz);
 		virtual bool operator < (Object* other) const
 		{
 			return false;
