@@ -23,7 +23,7 @@ namespace java::io
 		}
 		virtual int read()
 		{
-			return data[pos++];
+			return data[pos++] & 0xFF;
 		}
 		virtual void read(Pointer<JavaRawArray<byte>> data)
 		{

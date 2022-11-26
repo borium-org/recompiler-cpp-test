@@ -11,6 +11,10 @@ namespace java::lang
 		Class(const char* thisClassName);
 		//	virtual bool isInstance(Pointer<Object> clazz);
 		virtual Pointer<String> getSimpleName();
+		virtual Pointer<String> getName()
+		{
+			return createString(thisName);
+		}
 	private:
 		CString thisName;
 		Pointer<Class> parent;

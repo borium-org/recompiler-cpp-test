@@ -1,306 +1,1349 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\java.io">
-      <UniqueIdentifier>{057777d3-03f0-498f-96ec-52d3ef142891}</UniqueIdentifier>
+    <Filter Include="java.lang">
+      <UniqueIdentifier>{53cf909f-fd16-4680-af35-503cec883eef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\java.lang">
-      <UniqueIdentifier>{5e5ac929-3cdb-413d-be37-7a1609fa23fb}</UniqueIdentifier>
+    <Filter Include="java.io">
+      <UniqueIdentifier>{755e6e99-942b-475a-a35e-5ff024264131}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\java.util">
-      <UniqueIdentifier>{4c045a3e-e37a-4eed-97f3-68c73ce61fce}</UniqueIdentifier>
+    <Filter Include="java.util">
+      <UniqueIdentifier>{a4eca845-8295-4d49-ab79-c65fb473030e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\java.io">
-      <UniqueIdentifier>{9bd93046-773a-49fa-9c12-f4f314cbbc41}</UniqueIdentifier>
+    <Filter Include="org.borium.javarecompiler.classfile">
+      <UniqueIdentifier>{bfc7e785-0bfc-4cd0-b1b3-b32582b49023}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\java.lang">
-      <UniqueIdentifier>{061ad38d-63c0-4c03-81b6-c08886743afd}</UniqueIdentifier>
+    <Filter Include="org.borium.javarecompiler.classfile.constants">
+      <UniqueIdentifier>{fdf3f0ca-99d2-401a-a7a1-f74a70e74d6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\org.borium.javarecompiler.classfile">
-      <UniqueIdentifier>{a46aba5e-21d8-44d6-9a9a-4cb5a3add28f}</UniqueIdentifier>
+    <Filter Include="org.borium.javarecompiler.classfile.attribute">
+      <UniqueIdentifier>{eda476fd-2550-4116-9b6f-9083f94bf310}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\org.borium.javarecompiler.classfile">
-      <UniqueIdentifier>{a7f13fe1-d4bd-4777-82e6-3f27ed37cad4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\org.borium.javarecompiler.classfile.constants">
-      <UniqueIdentifier>{3d303476-375f-4e45-9c33-1bfbb33e7fce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\org.borium.javarecompiler.classfile.constants">
-      <UniqueIdentifier>{f9ae4deb-4085-4247-ba31-14bfa732f662}</UniqueIdentifier>
+    <Filter Include="org.borium.javarecompiler.classfile.instruction">
+      <UniqueIdentifier>{8fd010d2-84ec-4a04-ac18-05dd3d04b148}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="recompiler-cpp-test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__PrintStream.h">
-      <Filter>Header Files\java.io</Filter>
-    </ClInclude>
     <ClInclude Include="java__lang__Class.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__Double.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__Object.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__RuntimeException.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__String.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__StringBuilder.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__System.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__lang__Throwable.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__ArrayList.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__HashMap.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__Iterator.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__List.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__Map.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="java__util__NoSuchElementException.h">
-      <Filter>Header Files\java.util</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__Recomp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__File.h">
-      <Filter>Header Files\java.io</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__IOException.h">
-      <Filter>Header Files\java.io</Filter>
+      <Filter>java.lang</Filter>
     </ClInclude>
     <ClInclude Include="java__lang__ClassFormatError.h">
-      <Filter>Header Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Double.h">
+      <Filter>java.lang</Filter>
     </ClInclude>
     <ClInclude Include="java__lang__Exception.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__DataInputStream.h">
-      <Filter>Header Files\java.io</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__FileInputStream.h">
-      <Filter>Header Files\java.io</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__ByteInputStream.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__ByteArrayInputStream.h">
-      <Filter>Header Files\java.io</Filter>
-    </ClInclude>
-    <ClInclude Include="java__io__UnsupportedEncodingException.h">
-      <Filter>Header Files\java.io</Filter>
+      <Filter>java.lang</Filter>
     </ClInclude>
     <ClInclude Include="java__lang__Float.h">
-      <Filter>Header Files\java.lang</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__Constant.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDynamic.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFieldrefInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFloat.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInteger.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInterfaceMethodrefInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInvokeDynamic.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantLong.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantModule.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPool.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.h">
-      <Filter>Header Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClInclude>
-    <ClInclude Include="org__borium__javarecompiler__Statics.h">
-      <Filter>Header Files</Filter>
+      <Filter>java.lang</Filter>
     </ClInclude>
     <ClInclude Include="java__lang__Integer.h">
-      <Filter>Header Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Object.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__RuntimeException.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__String.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__StringBuilder.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__System.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Throwable.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__ByteArrayInputStream.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__DataInputStream.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__File.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__FileInputStream.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__IOException.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__PrintStream.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__UnsupportedEncodingException.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__ArrayList.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__HashMap.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__Iterator.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__List.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__Map.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__NoSuchElementException.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ByteInputStream.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__Constant.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDynamic.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFieldrefInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantFloat.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInteger.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInterfaceMethodrefInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantInvokeDynamic.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantLong.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantModule.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPool.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.h">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__Recomp.h" />
+    <ClInclude Include="org__borium__javarecompiler__Statics.h" />
+    <ClInclude Include="recompiler-cpp-test.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeCode.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeConstantValue.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeExceptions.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeInnerClasses.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeLineNumberTable.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeLocalVariableTable.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeLocalVariableTypeTable.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeNestMembers.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeSignature.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeSourceFile.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeStackMapTable.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__ExceptionTable.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__InnerClass.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__LocalVariableType.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__StackMapFrame.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__VariableTableEntry.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__attribute__VerificationTypeInfo.h">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__Instruction.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionAALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionAASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionACONST_NULL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionANEWARRAY.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionARETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionARRAYLENGTH.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionATHROW.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionBALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionBASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionBIPUSH.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionCALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionCASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionCHECKCAST.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionD2F.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionD2I.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionD2L.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDADD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDCMPG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDCMPL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDCONST.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDDIV.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDLOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDMUL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDNEG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDREM.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDRETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDSTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDSUB.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP_X1.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP_X2.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2_X1.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2_X2.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionF2D.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionF2I.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionF2L.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFADD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFCMPG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFCMPL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFCONST.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFDIV.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFLOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFMUL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFNEG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFREM.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFRETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFSTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionFSUB.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionGETFIELD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionGETSTATIC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionGOTO.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionGOTO_W.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2B.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2C.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2D.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2F.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2L.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionI2S.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIADD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIAND.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionICONST.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIDIV.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ACMPEQ.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ACMPNE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPEQ.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPGE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPGT.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPLE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPLT.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPNE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFEQ.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFGE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFGT.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFLE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFLT.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNONNULL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNULL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIINC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionILOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIMUL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINEG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINSTANCEOF.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEDYNAMIC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEINTERFACE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKESPECIAL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKESTATIC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEVIRTUAL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIOR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIREM.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIRETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionISHL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionISHR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionISTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionISUB.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIUSHR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionIXOR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionJSR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionJSR_W.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionL2D.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionL2F.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionL2I.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLADD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLAND.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLCMP.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLCONST.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC_W.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC2_W.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLDIV.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLLOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLMUL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLNEG.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLOOKUPSWITCH.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLOR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLREM.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLRETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLSHL.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLSHR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLSTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLSUB.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLUSHR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionLXOR.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionMONITORENTER.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionMONITOREXIT.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionMULTIANEWARRAY.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionNEW.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionNEWARRAY.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionNOP.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionPOP.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionPOP2.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionPUTFIELD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionPUTSTATIC.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionRET.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionRETURN.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionSALOAD.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionSASTORE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionSIPUSH.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionSWAP.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionTABLESWITCH.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWIDE.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithFieldIndex.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLabel.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLocalVariableIndex.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithTypeIndex.h">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassAttribute.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassField.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassMethod.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__IndentedOutputStream.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ReferencedClasses.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__TreeSet.h">
+      <Filter>java.util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="recompiler-cpp-test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="java__io__File.cpp">
+      <Filter>java.io</Filter>
     </ClCompile>
     <ClCompile Include="java__io__PrintStream.cpp">
-      <Filter>Source Files\java.io</Filter>
+      <Filter>java.io</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__Class.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__Double.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__Object.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__RuntimeException.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__String.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__StringBuilder.cpp">
-      <Filter>Source Files\java.lang</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="java__lang__System.cpp">
-      <Filter>Source Files\java.lang</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__Recomp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile</Filter>
-    </ClCompile>
-    <ClCompile Include="java__io__File.cpp">
-      <Filter>Source Files\java.io</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__ByteInputStream.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPool.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantLong.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
-    </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantModule.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>java.lang</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__Constant.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantDynamic.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantFieldrefInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantFloat.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInteger.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInterfaceMethodrefInfo.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantInvokeDynamic.cpp">
-      <Filter>Source Files\org.borium.javarecompiler.classfile.constants</Filter>
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
     </ClCompile>
-    <ClCompile Include="org__borium__javarecompiler__Statics.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantLong.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodHandle.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodrefInfo.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantMethodType.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantModule.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantNameAndTypeInfo.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPackage.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPool.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.cpp">
+      <Filter>org.borium.javarecompiler.classfile.constants</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ByteInputStream.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__Recomp.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__Statics.cpp" />
+    <ClCompile Include="recompiler-cpp-test.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeCode.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeConstantValue.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeExceptions.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeInnerClasses.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeLineNumberTable.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeLocalVariableTable.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeLocalVariableTypeTable.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeNestMembers.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeSignature.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeSourceFile.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__AttributeStackMapTable.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__ExceptionTable.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__InnerClass.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__LocalVariableType.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__StackMapFrame.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__VariableTableEntry.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__attribute__VerificationTypeInfo.cpp">
+      <Filter>org.borium.javarecompiler.classfile.attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__Instruction.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionAALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionAASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionACONST_NULL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionANEWARRAY.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionARETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionARRAYLENGTH.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionATHROW.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionBALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionBASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionBIPUSH.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionCALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionCASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionCHECKCAST.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionD2F.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionD2I.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionD2L.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDADD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDCMPG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDCMPL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDCONST.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDDIV.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDLOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDMUL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDNEG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDREM.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDRETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDSTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDSUB.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP_X1.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP_X2.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2_X1.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionDUP2_X2.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionF2D.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionF2I.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionF2L.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFADD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFCMPG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFCMPL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFCONST.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFDIV.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFLOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFMUL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFNEG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFREM.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFRETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFSTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionFSUB.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionGETFIELD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionGETSTATIC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionGOTO.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionGOTO_W.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2B.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2C.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2D.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2F.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2L.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionI2S.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIADD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIAND.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionICONST.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIDIV.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ACMPEQ.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ACMPNE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPEQ.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPGE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPGT.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPLE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPLT.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIF_ICMPNE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFEQ.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFGE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFGT.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFLE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFLT.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNONNULL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIFNULL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIINC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionILOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIMUL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINEG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINSTANCEOF.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEDYNAMIC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEINTERFACE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKESPECIAL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKESTATIC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionINVOKEVIRTUAL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIOR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIREM.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIRETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionISHL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionISHR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionISTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionISUB.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIUSHR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionIXOR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionJSR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionJSR_W.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionL2D.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionL2F.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionL2I.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLADD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLAND.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLCMP.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLCONST.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC_W.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLDC2_W.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLDIV.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLLOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLMUL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLNEG.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLOOKUPSWITCH.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLOR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLREM.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLRETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLSHL.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLSHR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLSTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLSUB.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLUSHR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionLXOR.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionMONITORENTER.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionMONITOREXIT.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionMULTIANEWARRAY.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionNEW.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionNEWARRAY.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionNOP.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionPOP.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionPOP2.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionPUTFIELD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionPUTSTATIC.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionRET.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionRETURN.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionSALOAD.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionSASTORE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionSIPUSH.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionSWAP.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionTABLESWITCH.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWIDE.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithFieldIndex.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLabel.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLocalVariableIndex.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithTypeIndex.cpp">
+      <Filter>org.borium.javarecompiler.classfile.instruction</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassAttribute.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassField.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassMethod.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__IndentedOutputStream.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ReferencedClasses.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

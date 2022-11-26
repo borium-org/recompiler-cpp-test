@@ -30,6 +30,7 @@ namespace java::util
 namespace org::borium::javarecompiler::classfile
 {
 	class ClassFile;
+	class IndentedOutputStream;
 }
 
 using namespace java::io;
@@ -50,6 +51,8 @@ namespace org::borium::javarecompiler
 		static bool stackComments;
 		static bool dumpInstructions;
 		static bool dumpStatements;
+		static Pointer<HashMap<String, ClassFile>> processedClasses;
+		static Pointer<ArrayList<String>> processedClassNames;
 		static Pointer<HashMap<String, String>> simpleClassNames;
 		Pointer<String> mainClass;
 		Pointer<ArrayList<String>> classPaths;

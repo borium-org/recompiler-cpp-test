@@ -16,6 +16,7 @@
 #include "java__util__HashMap.h"
 #include "java__util__Iterator.h"
 #include "org__borium__javarecompiler__classfile__ClassFile.h"
+#include "org__borium__javarecompiler__classfile__IndentedOutputStream.h"
 
 using namespace java::io;
 using namespace java::lang;
@@ -31,6 +32,8 @@ namespace org::borium::javarecompiler
 	bool Recomp::stackComments;
 	bool Recomp::dumpInstructions;
 	bool Recomp::dumpStatements;
+	Pointer<HashMap<String, ClassFile>> Recomp::processedClasses;
+	Pointer<ArrayList<String>> Recomp::processedClassNames;
 	Pointer<HashMap<String, String>> Recomp::simpleClassNames;
 
 	void Recomp::__ClassInit()
@@ -45,13 +48,19 @@ namespace org::borium::javarecompiler
 			java::lang::Object::__thisClassStatic);
 
 		Pointer<HashMap<Object, Object>> temp_0014;
+		Pointer<ArrayList<Object>> temp_001E;
+		Pointer<HashMap<Object, Object>> temp_0028;
 		Object::__ClassInit();
 		Recomp::instructionComments = false;
 		Recomp::stackComments = false;
 		Recomp::dumpInstructions = false;
 		Recomp::dumpStatements = false;
 		temp_0014 = new HashMap<Object, Object>();
-		Recomp::simpleClassNames = (HashMap<String, String>*)temp_0014.getValue();
+		Recomp::processedClasses = (HashMap<String, ClassFile>*)temp_0014.getValue();
+		temp_001E = new ArrayList<Object>();
+		Recomp::processedClassNames = (ArrayList<String>*)temp_001E.getValue();
+		temp_0028 = new HashMap<Object, Object>();
+		Recomp::simpleClassNames = (HashMap<String, String>*)temp_0028.getValue();
 		return;
 	}
 
@@ -230,6 +239,7 @@ namespace org::borium::javarecompiler
 		Pointer<String> classPath_0040;
 		Pointer<File> file_0061;
 		Pointer<ClassFile> classFile_00D7;
+		Pointer<IndentedOutputStream> stream_010D;
 		Pointer<StringBuilder> temp_001A;
 		Pointer<Iterator> local_002F;
 		Pointer<String> temp_003B;
@@ -240,6 +250,8 @@ namespace org::borium::javarecompiler
 		Pointer<StringBuilder> temp_00BB;
 		Pointer<RuntimeException> temp_00CA;
 		Pointer<ClassFile> temp_00D2;
+		Pointer<StringBuilder> temp_00FD;
+		Pointer<IndentedOutputStream> temp_0108;
 		if (!(classFileName->startsWith(createString("java."))))
 			goto L000B;
 		// ARETURN: Type mismatch
@@ -298,6 +310,23 @@ namespace org::borium::javarecompiler
 			e_00E2->printStackTrace();
 		}
 	L00E7: //
+		try
+		{
+			Pointer<IndentedOutputStream> stream_010D;
+			String::__ClassInit();
+			temp_00FD = new StringBuilder(String::valueOf(fileName_0028->substring(0, (fileName_0028->length()) - (5)).getValue()));
+			temp_0108 = new IndentedOutputStream(temp_00FD->append(createString("txt"))->toString());
+			stream_010D = temp_0108;
+			classFile_00D7->dump(stream_010D);
+			stream_010D->close();
+		L0119: //
+			goto L0123;
+		}
+		catch (IOException* e_011E)
+		{
+			e_011E->printStackTrace();
+		}
+	L0123: //
 		System::__ClassInit();
 		System::out->println(createString("Read complete"));
 		return classFile_00D7;
@@ -306,8 +335,8 @@ namespace org::borium::javarecompiler
 	void Recomp::setCommentLevel(Pointer<String> commentLevel)
 	{
 		Pointer<String> local_0002;
-		Pointer<StringBuilder> temp_0058;
-		Pointer<RuntimeException> temp_0062;
+		Pointer<StringBuilder> temp_005A;
+		Pointer<RuntimeException> temp_0064;
 		local_0002 = commentLevel;
 		switch (commentLevel->hashCode())
 		{
@@ -316,33 +345,33 @@ namespace org::borium::javarecompiler
 		case (int)0x0033AF38:
 			goto L002C;
 		default:
-			goto L004E;
+			goto L004F;
 		}
 	L0020: //
 		if (local_0002->equals(createString("all")))
-			goto L0038;
-		goto L004E;
+			goto L0039;
+		goto L004F;
 	L002C: //
 		if (local_0002->equals(createString("none")))
-			goto L0043;
-		goto L004E;
-	L0038: //
+			goto L0044;
+		goto L004F;
+	L0039: //
 		Recomp::__ClassInit();
 		Recomp::instructionComments = true;
 		Recomp::__ClassInit();
 		Recomp::stackComments = true;
-		goto L0066;
-	L0043: //
+		goto L0068;
+	L0044: //
 		Recomp::__ClassInit();
 		Recomp::instructionComments = false;
 		Recomp::__ClassInit();
 		Recomp::stackComments = false;
-		goto L0066;
-	L004E: //
-		temp_0058 = new StringBuilder(createString("Unsupported comment level "));
-		temp_0062 = new RuntimeException(temp_0058->append(commentLevel)->toString());
-		throw temp_0062;
-	L0066: //
+		goto L0068;
+	L004F: //
+		temp_005A = new StringBuilder(createString("Unsupported comment level "));
+		temp_0064 = new RuntimeException(temp_005A->append(commentLevel)->toString());
+		throw temp_0064;
+	L0068: //
 		return;
 	}
 

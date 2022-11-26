@@ -167,19 +167,19 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::s2()
 	{
-		int value_0025 = 0;
+		int value_0017 = 0;
 		Pointer<ClassFormatError> temp_000E;
 		if ((this->available()) >= (2))
 			goto L0012;
 		temp_000E = new ClassFormatError(createString("Not enough data available to read a short"));
 		throw temp_000E;
 	L0012: //
-		value_0025 = (_shlx_u32(this->in->read(), (8) & 0x1F)) | (this->in->read());
-		if ((value_0025) < (32768))
-			goto L0030;
-		value_0025 = (value_0025) - (65536);
-	L0030: //
-		return value_0025;
+		value_0017 = this->u2();
+		if ((value_0017) < (32768))
+			goto L0022;
+		value_0017 = (value_0017) - (65536);
+	L0022: //
+		return value_0017;
 	}
 
 	int ByteInputStream::s4()
@@ -269,11 +269,10 @@ namespace org::borium::javarecompiler::classfile
 	{
 		int length_0017 = 0;
 		Pointer<JavaRawArray<byte>> bytes_001D;
-		Pointer<String> result_0028;
-		Pointer<String> result_0037;
+		Pointer<String> result_0020;
 		Pointer<ClassFormatError> temp_000E;
-		Pointer<String> temp_0024;
-		Pointer<ClassFormatError> temp_0033;
+		Pointer<String> temp_0027;
+		Pointer<ClassFormatError> temp_0036;
 		if ((this->available()) >= (2))
 			goto L0012;
 		temp_000E = new ClassFormatError(createString("Not enough data available to read UTF8 length"));
@@ -281,21 +280,22 @@ namespace org::borium::javarecompiler::classfile
 	L0012: //
 		length_0017 = this->u2();
 		bytes_001D = (JavaRawArray<byte>*)(this->read(length_0017).getValue());
-	L001D: //
+		result_0020 = createString("");
+	L0020: //
 		try
 		{
-			temp_0024 = new String(bytes_001D, createString("UTF-8"));
-			result_0028 = temp_0024;
-		L0028: //
-			goto L0037;
+			temp_0027 = new String(bytes_001D, createString("UTF-8"));
+			result_0020 = temp_0027;
+		L002B: //
+			goto L003A;
 		}
-		catch (UnsupportedEncodingException* e_002D)
+		catch (UnsupportedEncodingException* e_0030)
 		{
-			temp_0033 = new ClassFormatError(createString("UTF-8 exception"));
-			throw temp_0033;
+			temp_0036 = new ClassFormatError(createString("UTF-8 exception"));
+			throw temp_0036;
 		}
-	L0037: //
-		return result_0037;
+	L003A: //
+		return result_0020;
 	}
 
 }

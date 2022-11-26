@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "java__lang__Object.h"
+#include "java__lang__String.h"
 #include "java__lang__Class.h"
 
 namespace java::lang
@@ -17,6 +18,15 @@ namespace java::lang
 		__thisClassStatic = new Class("java::lang::Object");
 
 		return;
+	}
+
+	bool Object::instanceOf(Pointer<Class> clazz)
+	{
+		Pointer<String> thisClassName = __thisClass->getName();
+		Pointer<String> instClassName = clazz->getName();
+		if (thisClassName->equals(instClassName))
+			return true;
+		throw new std::exception("InstanceOf not implemented");
 	}
 
 }
