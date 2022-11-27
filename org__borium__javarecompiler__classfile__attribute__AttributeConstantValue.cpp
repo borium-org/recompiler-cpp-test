@@ -36,17 +36,23 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		return;
 	}
 
 	Pointer<Constant> AttributeConstantValue::getConstant()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->constantValue;
 	}
 
 	void AttributeConstantValue::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		stream->iprintln(createString("ConstantValue:"));
 		stream->indent(1);
 		stream->iprint(createString(""));
@@ -58,6 +64,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeConstantValue::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int constantIndex_0011 = 0;
 		Pointer<ByteInputStream> temp_0008;

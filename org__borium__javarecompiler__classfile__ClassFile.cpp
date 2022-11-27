@@ -58,6 +58,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantPool> temp_0009;
 		Pointer<HashMap<Object, Object>> temp_0014;
 		Pointer<ArrayList<Object>> temp_001F;
@@ -84,6 +86,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::addReferencedClasses(Pointer<ReferencedClasses> referencedClassNames)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->cp->addReferencedClasses(referencedClassNames);
 		referencedClassNames->removeClass(this->getClassName());
 		referencedClassNames->removeClass(this->getParentClassName());
@@ -92,6 +96,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_001E;
 		Pointer<StringBuilder> temp_0035;
@@ -112,21 +118,29 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ClassFile::getClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->className->replace('/', '.');
 	}
 
 	Pointer<String> ClassFile::getClassSimpleName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->className->substring((this->className->lastIndexOf(46)) + (1));
 	}
 
 	Pointer<JavaArray<ClassField>> ClassFile::getFields()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->fields;
 	}
 
 	Pointer<String> ClassFile::getFieldType(Pointer<String> fieldName)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassField> field_0014;
 		Pointer<ClassFile> superClass_003B;
 		Pointer<JavaArray<ClassField>> local_0005;
@@ -161,6 +175,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<ClassMethod> ClassFile::getMethod(Pointer<String> methodName, Pointer<String> methodDescriptor)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassMethod> method_0016;
 		Pointer<ClassFile> superClass_0046;
 		Pointer<JavaArray<ClassMethod>> local_0005;
@@ -197,16 +213,22 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<JavaArray<ClassMethod>> ClassFile::getMethods()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->methods;
 	}
 
 	Pointer<String> ClassFile::getParentClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->superClassName;
 	}
 
 	Pointer<ReferencedClasses> ClassFile::getReferencedClasses()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ReferencedClasses> referencedClasses_000C;
 		Pointer<ClassField> field_0020;
 		Pointer<ClassMethod> method_0042;
@@ -245,6 +267,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::read(Pointer<String> fileName)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<JavaArray<String>> directories_0007;
 		int index_0009 = 0;
 		Pointer<String> classFileName_0032;
@@ -307,6 +331,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dumpAttributes(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0022 = 0;
 		Pointer<ClassAttribute> attribute_0049;
 		Pointer<StringBuilder> temp_0008;
@@ -335,6 +361,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dumpClassInfo(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int flags_0015 = 0;
 		Pointer<ConstantClassInfo> thisClassInfo_00BF;
 		Pointer<ConstantClassInfo> superClassInfo_0107;
@@ -394,6 +422,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dumpFields(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0020 = 0;
 		Pointer<ClassField> field_0042;
 		Pointer<StringBuilder> temp_0008;
@@ -419,6 +449,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dumpInterfaces(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0020 = 0;
 		Pointer<ConstantClassInfo> classInfo_004C;
 		Pointer<StringBuilder> temp_0008;
@@ -448,6 +480,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::dumpMethods(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0020 = 0;
 		Pointer<ClassMethod> method_0042;
 		Pointer<StringBuilder> temp_0008;
@@ -473,6 +507,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readAttributes()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int attributeCount_0008 = 0;
 		int i_000A = 0;
 		Pointer<ClassAttribute> attribute_0019;
@@ -493,6 +529,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readClassInfo()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ConstantClassInfo> ci_0030;
 		Pointer<ConstantClassInfo> temp_002C;
 		this->accessFlags = this->in->u2();
@@ -507,6 +545,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readConstants()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->cp->read(this->in);
 		this->cp->verify(this->majorVersion, this->minorVersion);
 		return;
@@ -514,6 +554,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readFields()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int count_0008 = 0;
 		int i_0012 = 0;
 		Pointer<ClassField> field_001D;
@@ -538,6 +580,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readID()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int magic_0008 = 0;
 		Pointer<ClassFormatError> temp_0016;
 		magic_0008 = this->in->u4();
@@ -551,6 +595,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readInterfaces()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int count_0008 = 0;
 		int i_0011 = 0;
 		Pointer<JavaRawArray<int>> temp_000A;
@@ -570,6 +616,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readMethods()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int count_0008 = 0;
 		int i_0012 = 0;
 		Pointer<ClassMethod> method_001D;
@@ -594,6 +642,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassFile::readVersion()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0031;
 		Pointer<ClassFormatError> temp_004B;
 		this->minorVersion = this->in->u2();

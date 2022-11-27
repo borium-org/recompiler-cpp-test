@@ -74,6 +74,8 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
@@ -221,6 +223,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool Constant::is(int constantType)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((constantType) != (this->tag))
 			goto L000A;
 		return 1;
@@ -230,6 +234,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void Constant::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return;
 	}
 

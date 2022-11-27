@@ -33,6 +33,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
@@ -42,16 +44,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	int InstructionISTORE::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 
 	bool InstructionISTORE::isXStore()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 

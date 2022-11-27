@@ -38,11 +38,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantInteger::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Integer: "));
 		stream->print(temp_0007->append(this->value)->toString());
@@ -51,11 +55,15 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	int ConstantInteger::getValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->value;
 	}
 
 	void ConstantInteger::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 3;
 		this->value = in->u4();
 		return;
@@ -63,6 +71,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantInteger::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

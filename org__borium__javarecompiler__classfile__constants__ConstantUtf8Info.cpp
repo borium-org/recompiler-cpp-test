@@ -38,11 +38,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantUtf8Info::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("UTF8: \'"));
 		stream->print(temp_0007->append(this->utf8)->append(createString("\'"))->toString());
@@ -51,11 +55,15 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<String> ConstantUtf8Info::string()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->utf8;
 	}
 
 	void ConstantUtf8Info::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 1;
 		this->utf8 = in->utf8().getValue();
 		return;
@@ -63,6 +71,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantUtf8Info::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

@@ -37,6 +37,8 @@ namespace org::borium::javarecompiler
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 

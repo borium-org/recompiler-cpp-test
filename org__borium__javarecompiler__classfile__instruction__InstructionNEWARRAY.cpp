@@ -57,12 +57,16 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->atype = in->u1();
 		return;
 	}
 
 	void InstructionNEWARRAY::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -75,17 +79,23 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionNEWARRAY::getElementType()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		InstructionNEWARRAY::__ClassInit();
 		return InstructionNEWARRAY::elementTypes->get(this->atype);
 	}
 
 	int InstructionNEWARRAY::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionNEWARRAY::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 2;
 	}
 

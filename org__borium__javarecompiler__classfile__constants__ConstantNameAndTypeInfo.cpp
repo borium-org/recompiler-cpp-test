@@ -43,11 +43,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantNameAndTypeInfo::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("NameType: Name "));
 		stream->print(temp_0007->append(this->nameIndex)->append(createString(" "))->append(this->name)->append(createString(" Descriptor "))->append(this->descriptorIndex)->append(createString(" "))->append(this->descriptor)->toString());
@@ -56,22 +60,30 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<String> ConstantNameAndTypeInfo::getDescriptor()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->descriptor;
 	}
 
 	Pointer<String> ConstantNameAndTypeInfo::getName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->name;
 	}
 
 	int ConstantNameAndTypeInfo::getParameterCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Statics::__ClassInit();
 		return Statics::getParameterCount(this->descriptor);
 	}
 
 	int ConstantNameAndTypeInfo::getReturnTypeCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int pos_0020 = 0;
 		Pointer<RuntimeException> temp_0012;
 		Pointer<RuntimeException> temp_002B;
@@ -91,6 +103,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantNameAndTypeInfo::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->name = constantPool->getString(this->nameIndex).getValue();
 		this->descriptor = constantPool->getString(this->descriptorIndex).getValue();
 		return;
@@ -98,6 +112,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantNameAndTypeInfo::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 7;
 		this->nameIndex = in->u2();
 		this->descriptorIndex = in->u2();
@@ -106,6 +122,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantNameAndTypeInfo::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

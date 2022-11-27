@@ -43,11 +43,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantPool::addReferencedClasses(Pointer<ReferencedClasses> referencedClasses)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<Constant> c_0014;
 		Pointer<ConstantClassInfo> ci_002F;
 		Pointer<Constant>  instanceOfPatternExpressionValue_0017;
@@ -166,6 +170,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantPool::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_000D = 0;
 		Pointer<StringBuilder> temp_0022;
 		stream->println(createString("Constants:"));
@@ -191,6 +197,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<Constant> ConstantPool::get(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0017;
 		Pointer<ClassFormatError> temp_0030;
 		if ((index) < 0)
@@ -207,6 +215,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<String> ConstantPool::getString(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<Constant> constant_0006;
 		Pointer<ConstantUtf8Info> utf8_0013;
 		Pointer<ConstantUtf8Info> temp_000F;
@@ -227,6 +237,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantPool::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int count_0005 = 0;
 		int i_000F = 0;
 		int tag_0018 = 0;
@@ -271,6 +283,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantPool::verify(int majorVersion, int minorVersion)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0002 = 0;
 		Pointer<Constant> constant_000D;
 		i_0002 = 0;

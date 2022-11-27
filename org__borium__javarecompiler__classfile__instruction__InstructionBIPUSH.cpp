@@ -39,12 +39,16 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->value = in->s1();
 		return;
 	}
 
 	void InstructionBIPUSH::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -56,16 +60,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionBIPUSH::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int InstructionBIPUSH::getValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->value;
 	}
 
 	int InstructionBIPUSH::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 2;
 	}
 

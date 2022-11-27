@@ -40,12 +40,16 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		return;
 	}
 
 	void AttributeInnerClasses::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_001F = 0;
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_002B;
@@ -69,6 +73,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeInnerClasses::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int numberOfClasses_0011 = 0;
 		int i_001C = 0;

@@ -44,6 +44,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->index = in->u2();
 		this->constant = cp->get(this->index).getValue();
 		return;
@@ -51,6 +53,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionLDC2_W::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<ConstantLong> constantLong_0022;
 		Pointer<ConstantDouble> constantDouble_0061;
@@ -89,16 +93,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<Constant> InstructionLDC2_W::getConstant()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->constant;
 	}
 
 	int InstructionLDC2_W::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int InstructionLDC2_W::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

@@ -193,6 +193,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->attributeNameIndex = attribute->attributeNameIndex;
 		this->attributeLength = attribute->attributeLength;
 		this->attributeName = attribute->attributeName.getValue();
@@ -208,11 +210,15 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ClassAttribute::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_0023;
 		temp_0007 = new StringBuilder(createString("Attribute: "));
@@ -230,11 +236,15 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ClassAttribute::getName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->attributeName;
 	}
 
 	void ClassAttribute::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Attribute "));
 		stream->iprintln(temp_0007->append(this->attributeName)->append(createString(": Detailed dump not implemented"))->toString());
@@ -243,6 +253,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassAttribute::read(Pointer<ByteInputStream> in, Pointer<ConstantPool> constants)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->attributeNameIndex = in->u2();
 		this->attributeLength = in->u4();
 		this->info = in->read(this->attributeLength);

@@ -41,18 +41,24 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->offset = in->s2();
 		return;
 	}
 
 	void InstructionWithLabel::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		labels->assign((address) + (this->offset), (1) & 1);
 		return;
 	}
 
 	void InstructionWithLabel::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -66,6 +72,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionWithLabel::getTargetAddress(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Statics::__ClassInit();
 		Statics::Assert(((((index) == 0) ? (1) : (0))) != 0, createString("InstructionWithLabel: Bad target index"));
 		return (this->address) + (this->offset);
@@ -73,11 +81,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionWithLabel::getTargetCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	Pointer<String> InstructionWithLabel::getTargetLabel()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		Statics::__ClassInit();
@@ -86,6 +98,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionWithLabel::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

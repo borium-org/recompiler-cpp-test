@@ -39,11 +39,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantMethodHandle::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("MethodHandle: Kind "));
 		stream->println(temp_0007->append(this->referenceKind)->append(createString(" Index "))->append(this->referenceIndex)->toString());
@@ -52,6 +56,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantMethodHandle::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 15;
 		this->referenceKind = in->u1();
 		this->referenceIndex = in->u2();
@@ -60,6 +66,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantMethodHandle::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) < (51))
 			goto L000A;
 		if ((minorVersion) == 0)

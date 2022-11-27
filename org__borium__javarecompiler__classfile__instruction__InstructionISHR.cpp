@@ -28,11 +28,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	int InstructionISHR::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 

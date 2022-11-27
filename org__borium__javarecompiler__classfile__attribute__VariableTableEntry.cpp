@@ -43,6 +43,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->startPc = in->u2();
 		this->length = in->u2();
 		this->nameIndex = in->u2();
@@ -55,6 +57,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void VariableTableEntry::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_000C;
 		Pointer<StringBuilder> temp_0050;
 		String::__ClassInit();

@@ -53,6 +53,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<HashMap<Object, Object>> temp_000A;
 		Pointer<ArrayList<Object>> temp_0015;
 		temp_000A = new HashMap<Object, Object>();
@@ -65,31 +67,43 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	Pointer<JavaArray<ExceptionTable>> AttributeCode::getExceptionTable()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->exceptionTable;
 	}
 
 	Pointer<JavaArray<Instruction>> AttributeCode::getInstructions()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->instructions;
 	}
 
 	Pointer<JavaRawArray<bool>> AttributeCode::getLabels()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->labels;
 	}
 
 	int AttributeCode::getLength()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->codeLength;
 	}
 
 	int AttributeCode::getLocalsCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->maxLocals;
 	}
 
 	Pointer<JavaArray<VariableTableEntry>> AttributeCode::getLocalVariableTable()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeLocalVariableTable> table_000D;
 		Pointer<JavaArray<VariableTableEntry>> entries_0012;
 		Pointer<AttributeLocalVariableTypeTable> types_001F;
@@ -111,6 +125,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeCode::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int address_005F = 0;
 		int length_0090 = 0;
 		int i_00EC = 0;
@@ -213,6 +229,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeCode::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int exceptionTableLength_0035 = 0;
 		int i_0040 = 0;
@@ -316,6 +334,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeCode::updateEntries(Pointer<JavaArray<VariableTableEntry>> entries, Pointer<JavaArray<LocalVariableType>> localVariableTypes)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<LocalVariableType> type_0013;
 		Pointer<VariableTableEntry> entry_0027;
 		Pointer<JavaArray<LocalVariableType>> local_0002;

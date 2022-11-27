@@ -42,6 +42,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ClassFormatError> temp_0021;
 		this->index = in->u2();
 		this->zero = in->u2();
@@ -55,6 +57,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionINVOKEDYNAMIC::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		Pointer<StringBuilder> temp_003A;
@@ -71,6 +75,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionINVOKEDYNAMIC::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> name_000D;
 		Pointer<StringBuilder> temp_0019;
 		Pointer<RuntimeException> temp_0024;
@@ -83,6 +89,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionINVOKEDYNAMIC::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 5;
 	}
 

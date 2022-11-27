@@ -28,16 +28,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	bool InstructionLRETURN::fallsThrough()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionLRETURN::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 

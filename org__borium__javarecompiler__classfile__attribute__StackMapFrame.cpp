@@ -39,6 +39,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		int i_00E9 = 0;
 		int numberOfLocals_0120 = 0;
 		int i_012A = 0;

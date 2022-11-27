@@ -40,6 +40,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		int position_0009 = 0;
 		int nPairs_0031 = 0;
 		int i_0042 = 0;
@@ -74,6 +76,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionLOOKUPSWITCH::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int offs_0016 = 0;
 		Pointer<JavaRawArray<int>> local_0005;
 		int local_0008 = 0;
@@ -95,6 +99,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionLOOKUPSWITCH::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0054 = 0;
 		Pointer<StringBuilder> temp_0012;
 		Pointer<StringBuilder> temp_0029;
@@ -125,16 +131,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	bool InstructionLOOKUPSWITCH::fallsThrough()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionLOOKUPSWITCH::getCaseCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->match->length;
 	}
 
 	Pointer<String> InstructionLOOKUPSWITCH::getDefaultLabel()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		Statics::__ClassInit();
@@ -143,6 +155,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionLOOKUPSWITCH::getLabel(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		Statics::__ClassInit();
@@ -151,16 +165,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionLOOKUPSWITCH::getMatch(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->match->get(index);
 	}
 
 	int InstructionLOOKUPSWITCH::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 
 	int InstructionLOOKUPSWITCH::getTargetAddress(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((index) != (this->getCaseCount()))
 			goto L0012;
 		return (this->address) + (this->defaultLabel);
@@ -170,16 +190,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionLOOKUPSWITCH::getTargetCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (this->getCaseCount()) + (1);
 	}
 
 	int InstructionLOOKUPSWITCH::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return ((((1) + (this->padding)) + (4)) + (4)) + ((this->match->length) * (8));
 	}
 
 	void InstructionLOOKUPSWITCH::oneLineDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("lookupswitch "));
 		stream->iprintln(temp_0007->append(this->match->length)->append(createString(" cases"))->toString());

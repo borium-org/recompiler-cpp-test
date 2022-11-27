@@ -401,6 +401,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
@@ -1842,11 +1844,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void Instruction::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return;
 	}
 
 	void Instruction::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
 		stream->iprintln(className_0010);
@@ -1855,16 +1861,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	bool Instruction::fallsThrough()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int Instruction::getIndex()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 
 	int Instruction::getTargetAddress(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Statics::__ClassInit();
 		Statics::Assert(false, createString("Instruction.getTargetAddress: No jump target"));
 		return -1;
@@ -1872,27 +1884,37 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int Instruction::getTargetCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	bool Instruction::isXStore()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int Instruction::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	void Instruction::oneLineDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->detailedDump(stream);
 		return;
 	}
 
 	void Instruction::setAddress(int address)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->address = address;
 		return;
 	}

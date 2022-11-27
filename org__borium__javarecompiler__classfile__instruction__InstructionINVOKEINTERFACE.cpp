@@ -48,6 +48,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantInterfaceMethodrefInfo> temp_0015;
 		Pointer<ConstantClassInfo> temp_0027;
 		Pointer<ConstantNameAndTypeInfo> temp_0039;
@@ -74,6 +76,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionINVOKEINTERFACE::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -85,26 +89,36 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionINVOKEINTERFACE::getCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->count;
 	}
 
 	Pointer<String> InstructionINVOKEINTERFACE::getMethodClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->methodClassName;
 	}
 
 	Pointer<String> InstructionINVOKEINTERFACE::getmethodDescriptor()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->nameType->getDescriptor();
 	}
 
 	Pointer<String> InstructionINVOKEINTERFACE::getMethodName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->methodName;
 	}
 
 	int InstructionINVOKEINTERFACE::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int stackDepthChange_0002 = 0;
 		stackDepthChange_0002 = 0;
 		stackDepthChange_0002 += -1;
@@ -115,6 +129,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionINVOKEINTERFACE::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 5;
 	}
 

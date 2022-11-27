@@ -44,6 +44,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantMethodrefInfo> temp_0015;
 		Pointer<ConstantClassInfo> temp_0027;
 		Pointer<ConstantNameAndTypeInfo> temp_0039;
@@ -64,6 +66,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionINVOKESTATIC::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -75,21 +79,29 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionINVOKESTATIC::getMethodClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->methodClassName;
 	}
 
 	Pointer<String> InstructionINVOKESTATIC::getmethodDescriptor()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->nameType->getDescriptor();
 	}
 
 	Pointer<String> InstructionINVOKESTATIC::getMethodName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->methodName;
 	}
 
 	int InstructionINVOKESTATIC::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int stackDepthChange_0002 = 0;
 		stackDepthChange_0002 = 0;
 		stackDepthChange_0002 = (stackDepthChange_0002) - (this->nameType->getParameterCount());
@@ -99,6 +111,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionINVOKESTATIC::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

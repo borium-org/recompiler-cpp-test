@@ -42,6 +42,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<TreeSet<Object>> temp_0009;
 		temp_0009 = new TreeSet<Object>();
 		this->referencedClasses = (TreeSet<String>*)temp_0009.getValue();
@@ -51,6 +53,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ReferencedClasses::add(Pointer<String> type)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		char prefix_0009 = 0;
 		Pointer<StringBuilder> temp_00BC;
 		Pointer<RuntimeException> temp_00CB;
@@ -116,11 +120,15 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<TreeSet<String>> ReferencedClasses::getClasses()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->referencedClasses;
 	}
 
 	int ReferencedClasses::getTemplateParameterCount(Pointer<String> fullClassName)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> referencedClass_0015;
 		int pos_0029 = 0;
 		Pointer<String> baseName_0046;
@@ -159,12 +167,16 @@ namespace org::borium::javarecompiler::classfile
 
 	void ReferencedClasses::removeClass(Pointer<String> className)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->referencedClasses->remove(className->replace('.', '/').getValue());
 		return;
 	}
 
 	Pointer<String> ReferencedClasses::addClass(Pointer<String> type)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0003;
 		int parameterCount_0049 = 0;
 		bool isClass_005D = false;
@@ -226,6 +238,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ReferencedClasses::addTemplateBaseClasses(Pointer<String> type)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		goto L0037;
 	L0003: //
 		type = type->substring(1);
@@ -244,6 +258,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ReferencedClasses::insert(Pointer<String> className)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> rawTemplate_0021;
 		Pointer<String> template_0048;
 		Pointer<String> clazz_005F;
@@ -282,6 +298,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ReferencedClasses::skipClass(Pointer<String> type)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		goto L0009;
 	L0003: //
 		type = type->substring(1);

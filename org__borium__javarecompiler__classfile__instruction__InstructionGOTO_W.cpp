@@ -41,18 +41,24 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->offset = in->s4();
 		return;
 	}
 
 	void InstructionGOTO_W::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		labels->assign((address) + (this->offset), (1) & 1);
 		return;
 	}
 
 	void InstructionGOTO_W::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -64,16 +70,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	bool InstructionGOTO_W::fallsThrough()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionGOTO_W::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionGOTO_W::getTargetAddress(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Statics::__ClassInit();
 		Statics::Assert(((((index) == 0) ? (1) : (0))) != 0, createString("InstructionGOTO_W: Bad target index"));
 		return (this->address) + (this->offset);
@@ -81,11 +93,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionGOTO_W::getTargetCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int InstructionGOTO_W::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 5;
 	}
 

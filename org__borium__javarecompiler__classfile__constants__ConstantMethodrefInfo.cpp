@@ -41,11 +41,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantMethodrefInfo::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_002B;
 		temp_0007 = new StringBuilder(createString("MethodRef: Class "));
@@ -59,6 +63,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantMethodrefInfo::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ConstantClassInfo> temp_0009;
 		Pointer<ConstantNameAndTypeInfo> temp_0018;
 		temp_0009 = (ConstantClassInfo*)((constantPool->get(this->classIndex)).getValue());
@@ -72,6 +78,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantMethodrefInfo::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 10;
 		this->classIndex = in->u2();
 		this->nameAndTypeIndex = in->u2();
@@ -80,6 +88,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantMethodrefInfo::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

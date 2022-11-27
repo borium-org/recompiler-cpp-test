@@ -57,6 +57,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<PrintStream> temp_000F;
 		this->indentLevel = 0;
 		temp_000F = new PrintStream(fileName);
@@ -67,6 +69,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::close()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (!(this->locked))
 			goto L000B;
 		this->unlock();
@@ -77,12 +81,16 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::indent(int i)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->indentLevel = (this->indentLevel) + (i);
 		return;
 	}
 
 	void IndentedOutputStream::iprint(Pointer<String> string)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> output_0003;
 		int i_0005 = 0;
 		Pointer<StringBuilder> temp_0010;
@@ -113,6 +121,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::iprintln(Pointer<JavaRawArray<byte>> info)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int start_0002 = 0;
 		int offset_000D = 0;
 		start_0002 = 0;
@@ -151,6 +161,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::iprintln(Pointer<JavaRawArray<byte>> info, int start, int length)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->iprint(createString(""));
 		this->println(info, start, length);
 		return;
@@ -158,6 +170,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::iprintln(Pointer<String> string)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->iprint(string);
 		this->println();
 		return;
@@ -165,6 +179,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::liprintln(int temporaryIndent, Pointer<String> string)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		bool saveLocked_0014 = false;
 		int currentIndent_001F = 0;
 		IndentedOutputStream::__ClassInit();
@@ -185,6 +201,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::lock()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ArrayList<Object>> temp_0021;
 		IndentedOutputStream::__ClassInit();
 		if (IndentedOutputStream::_disableLocking)
@@ -200,6 +218,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::print(Pointer<String> string)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (!(this->locked))
 			goto L0013;
 		this->temporaryOutput->add(string.getValue());
@@ -212,6 +232,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::printHex(int value, int length)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> hex_0005;
 		Pointer<StringBuilder> temp_000E;
 		Integer::__ClassInit();
@@ -236,6 +258,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::println()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (!(this->locked))
 			goto L0014;
 		this->temporaryOutput->add(createString("\n"));
@@ -248,6 +272,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::println(Pointer<JavaRawArray<byte>> info, int start, int length)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int offset_0003 = 0;
 		offset_0003 = start;
 		goto L0018;
@@ -264,6 +290,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::println(Pointer<String> string)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0013;
 		if (!(this->locked))
 			goto L0025;
@@ -279,6 +307,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void IndentedOutputStream::unlock()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> string_0029;
 		Pointer<Iterator> local_001B;
 		Pointer<String> temp_0025;

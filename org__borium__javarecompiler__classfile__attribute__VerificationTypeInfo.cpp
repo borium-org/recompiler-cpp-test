@@ -48,6 +48,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ClassFormatError> temp_0053;
 		Pointer<ClassFormatError> temp_005D;
 		Pointer<StringBuilder> temp_0087;

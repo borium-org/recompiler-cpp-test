@@ -41,6 +41,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ByteArrayInputStream> temp_000A;
 		temp_000A = new ByteArrayInputStream(data);
 		this->in = temp_000A.getValue();
@@ -50,11 +52,15 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::available()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->in->available();
 	}
 
 	void ByteInputStream::close()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<IOException> e_0032;
 		Pointer<StringBuilder> temp_0011;
 		Pointer<ClassFormatError> temp_0023;
@@ -81,6 +87,8 @@ namespace org::borium::javarecompiler::classfile
 
 	double ByteInputStream::f4()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int data_0017 = 0;
 		double value_001D = 0;
 		Pointer<ClassFormatError> temp_000E;
@@ -97,6 +105,8 @@ namespace org::borium::javarecompiler::classfile
 
 	double ByteInputStream::f8()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		INT64 data_0018 = 0;
 		double value_001D = 0;
 		Pointer<ClassFormatError> temp_000F;
@@ -113,11 +123,15 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::getPosition()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (this->length) - (this->in->available());
 	}
 
 	Pointer<JavaRawArray<byte>> ByteInputStream::read(int length)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<JavaRawArray<byte>> data_0024;
 		Pointer<IOException> e_0031;
 		Pointer<StringBuilder> temp_0012;
@@ -150,6 +164,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::s1()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int value_001A = 0;
 		Pointer<ClassFormatError> temp_000E;
 		if ((this->available()) >= (1))
@@ -167,6 +183,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::s2()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int value_0017 = 0;
 		Pointer<ClassFormatError> temp_000E;
 		if ((this->available()) >= (2))
@@ -184,6 +202,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::s4()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassFormatError> temp_000E;
 		if ((this->available()) >= (4))
 			goto L0012;
@@ -195,6 +215,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::u1()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassFormatError> temp_000E;
 		if ((this->available()) >= (1))
 			goto L0012;
@@ -206,6 +228,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::u2()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int byte1_001A = 0;
 		int byte2_0022 = 0;
 		Pointer<ClassFormatError> temp_000E;
@@ -221,6 +245,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ByteInputStream::u4()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int byte1_001A = 0;
 		int byte2_0022 = 0;
 		int byte3_002A = 0;
@@ -240,6 +266,8 @@ namespace org::borium::javarecompiler::classfile
 
 	INT64 ByteInputStream::u8()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		INT64 byte1_001C = 0;
 		INT64 byte2_0025 = 0;
 		INT64 byte3_002F = 0;
@@ -267,6 +295,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ByteInputStream::utf8()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int length_0017 = 0;
 		Pointer<JavaRawArray<byte>> bytes_001D;
 		Pointer<String> result_0020;

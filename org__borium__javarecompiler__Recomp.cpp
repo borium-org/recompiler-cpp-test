@@ -70,6 +70,8 @@ namespace org::borium::javarecompiler
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ArrayList<Object>> temp_0009;
 		temp_0009 = new ArrayList<Object>();
 		this->classPaths = (ArrayList<String>*)temp_0009.getValue();
@@ -175,12 +177,16 @@ namespace org::borium::javarecompiler
 
 	void Recomp::addClassPath(Pointer<String> classPath)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->classPaths->add(classPath.getValue());
 		return;
 	}
 
 	void Recomp::run()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassFile> classFile_0022;
 		Pointer<StringBuilder> temp_0009;
 		System::__ClassInit();
@@ -192,6 +198,8 @@ namespace org::borium::javarecompiler
 
 	void Recomp::setMainClass(Pointer<String> mainClass)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
 		if ((this->mainClass).getValue() == nullptr)
@@ -206,6 +214,8 @@ namespace org::borium::javarecompiler
 
 	void Recomp::setOutputPath(Pointer<String> outputPath)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
 		if ((this->outputPath).getValue() == nullptr)
@@ -220,6 +230,8 @@ namespace org::borium::javarecompiler
 
 	void Recomp::setVisualStudio(Pointer<String> visualStudio)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0011;
 		Pointer<RuntimeException> temp_002C;
 		if ((this->visualStudio).getValue() == nullptr)
@@ -334,6 +346,8 @@ namespace org::borium::javarecompiler
 
 	void Recomp::setCommentLevel(Pointer<String> commentLevel)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> local_0002;
 		Pointer<StringBuilder> temp_005A;
 		Pointer<RuntimeException> temp_0064;

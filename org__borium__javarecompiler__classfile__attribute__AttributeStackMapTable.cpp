@@ -36,12 +36,16 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		return;
 	}
 
 	void AttributeStackMapTable::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int numberOfEntries_0011 = 0;
 		int i_001C = 0;

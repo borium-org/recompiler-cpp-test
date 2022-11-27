@@ -60,6 +60,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<HashMap<Object, Object>> temp_0009;
 		Pointer<ArrayList<Object>> temp_0014;
 		temp_0009 = new HashMap<Object, Object>();
@@ -71,12 +73,16 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassField::addReferencedClasses(Pointer<ReferencedClasses> referencedClasses)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		referencedClasses->add(this->getType());
 		return;
 	}
 
 	void ClassField::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int flags_003C = 0;
 		int i_00CB = 0;
 		Pointer<ClassAttribute> attribute_00F2;
@@ -137,11 +143,15 @@ namespace org::borium::javarecompiler::classfile
 
 	int ClassField::getAccessFlags()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->accessFlags;
 	}
 
 	Pointer<ClassAttribute> ClassField::getAttribute(Pointer<String> attributeName)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ClassAttribute> a_0015;
 		Pointer<Iterator> local_0007;
 		Pointer<ClassAttribute> temp_0011;
@@ -163,11 +173,15 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ClassField::getName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->name;
 	}
 
 	Pointer<String> ClassField::getType()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeSignature> sig_0019;
 		Pointer<AttributeSignature> temp_0015;
 		if (!(this->attributes->containsKey(createString("Signature"))))
@@ -182,6 +196,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassField::read(Pointer<ByteInputStream> in, Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int attributeCount_0035 = 0;
 		int i_0038 = 0;
 		Pointer<ClassAttribute> attribute_0042;

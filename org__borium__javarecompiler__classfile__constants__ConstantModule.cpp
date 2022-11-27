@@ -39,11 +39,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantModule::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Module: "));
 		stream->println(temp_0007->append(this->name)->toString());
@@ -52,12 +56,16 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantModule::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->name = constantPool->getString(this->nameIndex).getValue();
 		return;
 	}
 
 	void ConstantModule::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 19;
 		this->nameIndex = in->u2();
 		return;
@@ -65,6 +73,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantModule::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) < (53))
 			goto L000A;
 		if ((minorVersion) == 0)

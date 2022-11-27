@@ -41,6 +41,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->wide = wide;
 		this->index = ((wide) ? (in->u2()) : (in->u1()));
 		return;
@@ -48,6 +50,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionRET::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		Pointer<StringBuilder> temp_003A;
@@ -64,11 +68,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionRET::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionRET::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return ((this->wide) ? (3) : (2));
 	}
 

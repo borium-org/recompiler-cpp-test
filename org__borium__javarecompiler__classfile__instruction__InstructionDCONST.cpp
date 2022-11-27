@@ -34,17 +34,23 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->value = value;
 		return;
 	}
 
 	int InstructionDCONST::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	Pointer<String> InstructionDCONST::getValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Double::__ClassInit();
 		return Double::toString(this->value);
 	}

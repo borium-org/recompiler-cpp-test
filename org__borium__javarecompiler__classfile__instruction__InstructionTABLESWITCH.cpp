@@ -42,6 +42,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		int position_0009 = 0;
 		int nPairs_0048 = 0;
 		int i_0052 = 0;
@@ -74,6 +76,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionTABLESWITCH::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int offs_0016 = 0;
 		Pointer<JavaRawArray<int>> local_0005;
 		int local_0008 = 0;
@@ -95,6 +99,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionTABLESWITCH::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_0082 = 0;
 		Pointer<StringBuilder> temp_0012;
 		Pointer<StringBuilder> temp_0029;
@@ -131,16 +137,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	bool InstructionTABLESWITCH::fallsThrough()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	int InstructionTABLESWITCH::getCaseCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->offset->length;
 	}
 
 	Pointer<String> InstructionTABLESWITCH::getDefaultLabel()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		Statics::__ClassInit();
@@ -149,11 +161,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionTABLESWITCH::getFirstValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->low;
 	}
 
 	Pointer<String> InstructionTABLESWITCH::getLabel(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		Statics::__ClassInit();
@@ -162,11 +178,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionTABLESWITCH::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -1;
 	}
 
 	int InstructionTABLESWITCH::getTargetAddress(int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((index) != (this->getCaseCount()))
 			goto L0012;
 		return (this->address) + (this->defaultLabel);
@@ -176,16 +196,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionTABLESWITCH::getTargetCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (this->getCaseCount()) + (1);
 	}
 
 	int InstructionTABLESWITCH::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (((((1) + (this->padding)) + (4)) + (4)) + (4)) + ((this->offset->length) * (4));
 	}
 
 	void InstructionTABLESWITCH::oneLineDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("tableswitch "));
 		stream->iprintln(temp_0007->append(this->offset->length)->append(createString(" cases"))->toString());

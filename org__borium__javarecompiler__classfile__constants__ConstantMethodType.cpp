@@ -39,11 +39,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantMethodType::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("MethodType: "));
 		stream->println(temp_0007->append(this->descriptor)->toString());
@@ -52,12 +56,16 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	void ConstantMethodType::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->descriptor = constantPool->getString(this->descriptorIndex).getValue();
 		return;
 	}
 
 	void ConstantMethodType::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 16;
 		this->descriptorIndex = in->u2();
 		return;
@@ -65,6 +73,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantMethodType::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) < (51))
 			goto L000A;
 		if ((minorVersion) == 0)

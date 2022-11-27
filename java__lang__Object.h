@@ -164,6 +164,26 @@ namespace java::lang
 		int usageCounter;
 	};
 
+	class UsageCounterMaintainer
+	{
+	public:
+		UsageCounterMaintainer(Object* object, bool deleteWhenDone)
+		{
+			this->deleteWhenDone = deleteWhenDone;
+			this->object = object;
+			object->usageCounter++;
+		}
+		~UsageCounterMaintainer()
+		{
+			object->usageCounter--;
+			if (deleteWhenDone && object->usageCounter == 0)
+				delete object;
+		}
+	private:
+		Object* object;
+		bool deleteWhenDone;
+	};
+
 	template<class T>
 	class JavaArray : public Object
 	{

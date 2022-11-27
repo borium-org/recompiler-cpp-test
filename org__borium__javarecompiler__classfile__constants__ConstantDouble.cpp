@@ -40,11 +40,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantDouble::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Double: "));
 		stream->print(temp_0007->append(this->value)->toString());
@@ -53,12 +57,16 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<String> ConstantDouble::getValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Double::__ClassInit();
 		return Double::toString(this->value);
 	}
 
 	void ConstantDouble::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 6;
 		this->value = in->f8();
 		return;
@@ -66,6 +74,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantDouble::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

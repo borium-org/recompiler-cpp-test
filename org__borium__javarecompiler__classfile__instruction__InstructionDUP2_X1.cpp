@@ -36,11 +36,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	int InstructionDUP2_X1::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> name_000D;
 		Pointer<StringBuilder> temp_0019;
 		Pointer<RuntimeException> temp_0024;

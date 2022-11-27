@@ -42,6 +42,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantClassInfo> temp_0015;
 		this->index = in->u2();
 		temp_0015 = (ConstantClassInfo*)((cp->get(this->index)).getValue());
@@ -53,6 +55,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionWithTypeIndex::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> instructionClassName_0010;
 		Pointer<StringBuilder> temp_0019;
 		instructionClassName_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -64,11 +68,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionWithTypeIndex::getClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->className;
 	}
 
 	int InstructionWithTypeIndex::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

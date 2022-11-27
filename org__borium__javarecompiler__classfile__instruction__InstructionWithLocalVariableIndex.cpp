@@ -40,6 +40,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->indexConstantLength = ((wide) ? (2) : (1));
 		this->index = ((wide) ? (in->u2()) : (in->u1()));
 		return;
@@ -53,6 +55,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->indexConstantLength = 0;
 		this->index = index;
 		return;
@@ -60,6 +64,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionWithLocalVariableIndex::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -71,11 +77,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionWithLocalVariableIndex::getIndex()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->index;
 	}
 
 	int InstructionWithLocalVariableIndex::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (1) + (this->indexConstantLength);
 	}
 

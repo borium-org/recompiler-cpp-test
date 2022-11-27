@@ -39,6 +39,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		int i_0018 = 0;
 		Pointer<JavaArray<ConstantClassInfo>> temp_0010;
 		Pointer<ConstantClassInfo> temp_002A;
@@ -60,6 +62,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeNestMembers::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_001F = 0;
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_002B;
@@ -84,6 +88,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeNestMembers::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int numberOfClasses_0011 = 0;
 		int i_001B = 0;

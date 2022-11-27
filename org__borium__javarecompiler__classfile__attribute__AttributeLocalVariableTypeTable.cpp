@@ -40,17 +40,23 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		return;
 	}
 
 	Pointer<JavaArray<LocalVariableType>> AttributeLocalVariableTypeTable::getLocalVariableTypes()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->localVariableTypes;
 	}
 
 	void AttributeLocalVariableTypeTable::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int i_001F = 0;
 		Pointer<StringBuilder> temp_0007;
 		Pointer<StringBuilder> temp_002B;
@@ -75,6 +81,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeLocalVariableTypeTable::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		int numberOfEntries_0011 = 0;
 		int i_001C = 0;

@@ -43,6 +43,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantFieldrefInfo> temp_0015;
 		Pointer<ConstantNameAndTypeInfo> temp_0027;
 		this->index = in->u2();
@@ -59,6 +61,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionWithFieldIndex::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -70,6 +74,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionWithFieldIndex::getClassName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0006;
 		temp_0006 = new StringBuilder(createString("L"));
 		return temp_0006->append(this->fieldref->getClassName())->append(createString(";"))->toString();
@@ -77,16 +83,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<String> InstructionWithFieldIndex::getFieldName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->fieldName;
 	}
 
 	Pointer<String> InstructionWithFieldIndex::getFieldType()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->fieldType;
 	}
 
 	int InstructionWithFieldIndex::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

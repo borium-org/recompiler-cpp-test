@@ -39,6 +39,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		this->sourceFile = cp->getString(this->index).getValue();
 		return;
@@ -46,6 +48,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeSourceFile::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Source File: "));
 		stream->iprintln(temp_0007->append(this->sourceFile)->toString());
@@ -54,6 +58,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeSourceFile::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		Pointer<ByteInputStream> temp_0008;
 		temp_0008 = new ByteInputStream(this->info);

@@ -40,6 +40,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->startPc = in->u2();
 		this->endPc = in->u2();
 		this->handlerPc = in->u2();
@@ -49,11 +51,15 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	Pointer<String> ExceptionTable::getExceptionClass()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->catchClass->getName();
 	}
 
 	void ExceptionTable::addLabels(Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		labels->assign(this->startPc, (1) & 1);
 		labels->assign(this->endPc, (1) & 1);
 		labels->assign(this->handlerPc, (1) & 1);

@@ -48,6 +48,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		int opcode_0009 = 0;
 		Pointer<InstructionILOAD> temp_007B;
 		Pointer<InstructionFLOAD> temp_008B;
@@ -151,21 +153,29 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<Instruction> InstructionWIDE::getNestedInstruction()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->instruction;
 	}
 
 	int InstructionWIDE::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->instruction->getStackDepthChange();
 	}
 
 	int InstructionWIDE::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return (this->instruction->length()) + (1);
 	}
 
 	void InstructionWIDE::setAddress(int address)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->address = address;
 		this->instruction->address = address;
 		return;

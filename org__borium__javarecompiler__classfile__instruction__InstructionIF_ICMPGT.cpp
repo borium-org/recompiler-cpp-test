@@ -32,11 +32,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	int InstructionIF_ICMPGT::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return -2;
 	}
 

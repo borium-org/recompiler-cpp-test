@@ -38,12 +38,16 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->value = value;
 		return;
 	}
 
 	void InstructionLCONST::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -55,11 +59,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionLCONST::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	Pointer<String> InstructionLCONST::getValue()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_000B;
 		String::__ClassInit();
 		temp_000B = new StringBuilder(String::valueOf(this->value));

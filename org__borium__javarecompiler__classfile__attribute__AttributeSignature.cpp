@@ -39,6 +39,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->decode(cp);
 		this->signature = cp->getString(this->signatureIndex).getValue();
 		return;
@@ -46,11 +48,15 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	Pointer<String> AttributeSignature::getSignature()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->signature;
 	}
 
 	void AttributeSignature::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("Signature: "));
 		stream->iprintln(temp_0007->append(this->signatureIndex)->append(createString(" "))->append(this->signature)->toString());
@@ -59,6 +65,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void AttributeSignature::decode(Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<ByteInputStream> in_000C;
 		Pointer<ByteInputStream> temp_0008;
 		temp_0008 = new ByteInputStream(this->info);

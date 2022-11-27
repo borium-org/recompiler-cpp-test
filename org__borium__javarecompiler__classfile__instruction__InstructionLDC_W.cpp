@@ -48,6 +48,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantStringInfo> stringValue_002A;
 		Pointer<ConstantClassInfo> classInfo_0048;
 		Pointer<ConstantStringInfo> temp_0026;
@@ -74,6 +76,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	void InstructionLDC_W::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<ConstantStringInfo> stringValue_0022;
 		Pointer<ConstantInteger> intValue_005D;
@@ -132,16 +136,22 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	Pointer<Constant> InstructionLDC_W::getConstant()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->c;
 	}
 
 	int InstructionLDC_W::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int InstructionLDC_W::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 3;
 	}
 

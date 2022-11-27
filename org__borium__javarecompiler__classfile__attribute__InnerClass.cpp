@@ -44,6 +44,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<ConstantClassInfo> temp_002D;
 		Pointer<ConstantClassInfo> temp_004B;
 		this->innerClassInfoIndex = in->u2();
@@ -64,6 +66,8 @@ namespace org::borium::javarecompiler::classfile::attribute
 
 	void InnerClass::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int flags_0055 = 0;
 		Pointer<StringBuilder> temp_000C;
 		Pointer<StringBuilder> temp_0023;

@@ -69,6 +69,8 @@ namespace org::borium::javarecompiler::classfile
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		Pointer<HashMap<Object, Object>> temp_0009;
 		Pointer<ArrayList<Object>> temp_0014;
 		temp_0009 = new HashMap<Object, Object>();
@@ -80,12 +82,16 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassMethod::addReferencedClasses(Pointer<ReferencedClasses> referencedClasses)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		referencedClasses->add(this->getType());
 		return;
 	}
 
 	void ClassMethod::dump(Pointer<IndentedOutputStream> stream, Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int flags_0044 = 0;
 		int i_00F4 = 0;
 		Pointer<ClassAttribute> attribute_011D;
@@ -152,6 +158,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<AttributeCode> ClassMethod::getCode()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeCode> code_000D;
 		Pointer<AttributeCode> temp_0009;
 		temp_0009 = (AttributeCode*)((this->attributes->get(createString("Code"))).getValue());
@@ -162,11 +170,15 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ClassMethod::getDescriptor()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->descriptor;
 	}
 
 	Pointer<JavaArray<ExceptionTable>> ClassMethod::getExceptionTable()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeCode> code_000D;
 		Pointer<AttributeCode> temp_0009;
 		temp_0009 = (AttributeCode*)((this->attributes->get(createString("Code"))).getValue());
@@ -177,6 +189,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<JavaArray<Instruction>> ClassMethod::getInstructions()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeCode> code_000D;
 		Pointer<AttributeCode> temp_0009;
 		temp_0009 = (AttributeCode*)((this->attributes->get(createString("Code"))).getValue());
@@ -187,6 +201,8 @@ namespace org::borium::javarecompiler::classfile
 
 	int ClassMethod::getLocalsCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeCode> code_000D;
 		Pointer<AttributeCode> temp_0009;
 		temp_0009 = (AttributeCode*)((this->attributes->get(createString("Code"))).getValue());
@@ -197,6 +213,8 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<JavaArray<VariableTableEntry>> ClassMethod::getLocalVariableTable()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeCode> code_000D;
 		Pointer<AttributeCode> temp_0009;
 		temp_0009 = (AttributeCode*)((this->attributes->get(createString("Code"))).getValue());
@@ -207,17 +225,23 @@ namespace org::borium::javarecompiler::classfile
 
 	Pointer<String> ClassMethod::getName()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->name;
 	}
 
 	int ClassMethod::getParameterCount()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Statics::__ClassInit();
 		return (Statics::getParameterCount(this->descriptor)) + (((this->isStatic()) ? (0) : (1)));
 	}
 
 	Pointer<String> ClassMethod::getType()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<AttributeSignature> sig_0019;
 		Pointer<AttributeSignature> temp_0015;
 		if (!(this->attributes->containsKey(createString("Signature"))))
@@ -232,6 +256,8 @@ namespace org::borium::javarecompiler::classfile
 
 	bool ClassMethod::isAbstract()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (((this->accessFlags) & (1024)) == 0)
 			goto L000D;
 		return 1;
@@ -241,6 +267,8 @@ namespace org::borium::javarecompiler::classfile
 
 	bool ClassMethod::isPresentInSource()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (((this->accessFlags) & (4160)) == 0)
 			goto L0025;
 		Statics::__ClassInit();
@@ -252,6 +280,8 @@ namespace org::borium::javarecompiler::classfile
 
 	bool ClassMethod::isStatic()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if (((this->accessFlags) & (8)) == 0)
 			goto L000C;
 		return 1;
@@ -261,6 +291,8 @@ namespace org::borium::javarecompiler::classfile
 
 	void ClassMethod::read(Pointer<ByteInputStream> in, Pointer<ConstantPool> cp)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		int attributeCount_0035 = 0;
 		int i_0038 = 0;
 		Pointer<ClassAttribute> attribute_0042;

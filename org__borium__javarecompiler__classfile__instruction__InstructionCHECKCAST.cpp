@@ -40,6 +40,8 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		if (!(this->className->startsWith(createString("["))))
 			goto L0016;
 		this->convertArray();
@@ -49,11 +51,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionCHECKCAST::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 0;
 	}
 
 	void InstructionCHECKCAST::convertArray()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0005;
 		int indexCount_0007 = 0;
 		Pointer<StringBuilder> temp_0048;

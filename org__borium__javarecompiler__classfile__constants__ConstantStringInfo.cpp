@@ -39,11 +39,15 @@ namespace org::borium::javarecompiler::classfile::constants
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		return;
 	}
 
 	void ConstantStringInfo::dump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<StringBuilder> temp_0007;
 		temp_0007 = new StringBuilder(createString("String: "));
 		stream->print(temp_0007->append(this->stringIndex)->append(createString(" \'"))->append(this->string)->append(createString("\'"))->toString());
@@ -52,22 +56,30 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	Pointer<String> ConstantStringInfo::getString()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return this->string;
 	}
 
 	Pointer<String> ConstantStringInfo::getValue(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return constantPool->getString(this->stringIndex);
 	}
 
 	void ConstantStringInfo::fixup(Pointer<ConstantPool> constantPool)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->string = constantPool->getString(this->stringIndex).getValue();
 		return;
 	}
 
 	void ConstantStringInfo::read(Pointer<ByteInputStream> in)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		this->tag = 8;
 		this->stringIndex = in->u2();
 		return;
@@ -75,6 +87,8 @@ namespace org::borium::javarecompiler::classfile::constants
 
 	bool ConstantStringInfo::verify(int majorVersion, int minorVersion, Pointer<ConstantPool> cp, int index)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		if ((majorVersion) >= (45))
 			goto L0008;
 		return 0;

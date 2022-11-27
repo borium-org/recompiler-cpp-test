@@ -39,18 +39,24 @@ namespace org::borium::javarecompiler::classfile::instruction
 		__ClassInit();
 		__thisClass = __thisClassStatic;
 
+		UsageCounterMaintainer maintainer(this, false);
+
 		this->offset = in->s4();
 		return;
 	}
 
 	void InstructionJSR_W::addLabel(int address, Pointer<JavaRawArray<bool>> labels)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		labels->assign((address) + (this->offset), (1) & 1);
 		return;
 	}
 
 	void InstructionJSR_W::detailedDump(Pointer<IndentedOutputStream> stream)
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		Pointer<String> className_0010;
 		Pointer<StringBuilder> temp_0019;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
@@ -62,11 +68,15 @@ namespace org::borium::javarecompiler::classfile::instruction
 
 	int InstructionJSR_W::getStackDepthChange()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 1;
 	}
 
 	int InstructionJSR_W::length()
 	{
+		UsageCounterMaintainer maintainer(this, true);
+
 		return 5;
 	}
 
