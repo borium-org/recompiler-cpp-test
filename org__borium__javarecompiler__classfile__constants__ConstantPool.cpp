@@ -53,116 +53,108 @@ namespace org::borium::javarecompiler::classfile::constants
 		UsageCounterMaintainer maintainer(this, true);
 
 		Pointer<Constant> c_0014;
-		Pointer<ConstantClassInfo> ci_002F;
-		Pointer<Constant>  instanceOfPatternExpressionValue_0017;
-		Pointer<String> className_0036;
+		Pointer<ConstantClassInfo> ci_0021;
+		Pointer<String> className_0028;
 		Pointer<JavaArray<Constant>> local_0005;
 		int local_0008 = 0;
 		int local_000B = 0;
-		Pointer<ConstantClassInfo> temp_0021;
-		Pointer<ConstantClassInfo> local_0025;
-		Pointer<ConstantClassInfo> temp_0029;
-		Pointer<String> local_0061;
-		Pointer<StringBuilder> temp_0121;
-		Pointer<StringBuilder> temp_013A;
-		Pointer<StringBuilder> temp_014E;
+		Pointer<ConstantClassInfo> temp_001C;
+		Pointer<String> local_0053;
+		Pointer<StringBuilder> temp_0115;
+		Pointer<StringBuilder> temp_012E;
+		Pointer<StringBuilder> temp_0142;
 		local_0005 = (JavaArray<Constant>*)(this->constants.getValue());
 		local_0008 = this->constants->length;
 		local_000B = 0;
-		goto L0164;
+		goto L0158;
 	L000F: //
 		c_0014 = local_0005->get(local_000B);
-		 instanceOfPatternExpressionValue_0017 = c_0014;
-		if (!( instanceOfPatternExpressionValue_0017->instanceOf(ConstantClassInfo::__thisClassStatic)))
-			goto L0161;
-		temp_0021 = (ConstantClassInfo*)(( instanceOfPatternExpressionValue_0017).getValue());
-		temp_0021->checkCast(ConstantClassInfo::__thisClassStatic);
-		local_0025 = temp_0021;
-		temp_0029 = (ConstantClassInfo*)(( instanceOfPatternExpressionValue_0017).getValue());
-		temp_0029->checkCast(ConstantClassInfo::__thisClassStatic);
-		if ((temp_0021) != (temp_0029))
-			goto L0161;
-		className_0036 = ci_002F->getName();
-		if (!(className_0036->startsWith(createString("["))))
-			goto L005E;
-		goto L004B;
-	L0043: //
-		className_0036 = className_0036->substring(1);
-	L004B: //
-		if (className_0036->startsWith(createString("[")))
-			goto L0043;
-		referencedClasses->add(className_0036);
-		goto L0161;
-	L005E: //
-		local_0061 = className_0036;
-		switch (className_0036->hashCode())
+		if (!(c_0014->instanceOf(ConstantClassInfo::__thisClassStatic)))
+			goto L0155;
+		temp_001C = (ConstantClassInfo*)((c_0014).getValue());
+		temp_001C->checkCast(ConstantClassInfo::__thisClassStatic);
+		ci_0021 = temp_001C;
+		className_0028 = ci_0021->getName();
+		if (!(className_0028->startsWith(createString("["))))
+			goto L0050;
+		goto L003D;
+	L0035: //
+		className_0028 = className_0028->substring(1);
+	L003D: //
+		if (className_0028->startsWith(createString("[")))
+			goto L0035;
+		referencedClasses->add(className_0028);
+		goto L0155;
+	L0050: //
+		local_0053 = className_0028;
+		switch (className_0028->hashCode())
 		{
 		case (int)0x99CEF584:
-			goto L00B0;
+			goto L00A4;
 		case (int)0xF843E2FE:
-			goto L00BD;
+			goto L00B1;
 		case (int)0x02C85B0E:
-			goto L00CA;
+			goto L00BE;
 		case (int)0x0BBD0C37:
-			goto L00D7;
+			goto L00CB;
 		case (int)0x109FDC28:
-			goto L00E4;
+			goto L00D8;
 		case (int)0x41D0A6FC:
-			goto L00F1;
+			goto L00E5;
 		case (int)0x41D0BE02:
-			goto L00FE;
+			goto L00F2;
 		case (int)0x444D08AA:
-			goto L010B;
+			goto L00FF;
 		default:
-			goto L0147;
+			goto L013B;
 		}
-	L00B0: //
-		if (local_0061->equals(createString("java/util/TreeSet")))
-			goto L0131;
-		goto L0147;
-	L00BD: //
-		if (local_0061->equals(createString("java/util/List")))
-			goto L0131;
-		goto L0147;
-	L00CA: //
-		if (local_0061->equals(createString("java/util/HashMap")))
-			goto L0118;
-		goto L0147;
-	L00D7: //
-		if (local_0061->equals(createString("java/util/ArrayList")))
-			goto L0131;
-		goto L0147;
-	L00E4: //
-		if (local_0061->equals(createString("java/util/Stack")))
-			goto L0131;
-		goto L0147;
-	L00F1: //
-		if (local_0061->equals(createString("java/util/Map")))
-			goto L0118;
-		goto L0147;
-	L00FE: //
-		if (local_0061->equals(createString("java/util/Set")))
-			goto L0131;
-		goto L0147;
-	L010B: //
-		if (local_0061->equals(createString("java/util/Map$Entry")))
-			goto L0118;
-		goto L0147;
-	L0118: //
+	L00A4: //
+		if (local_0053->equals(createString("java/util/TreeSet")))
+			goto L0125;
+		goto L013B;
+	L00B1: //
+		if (local_0053->equals(createString("java/util/List")))
+			goto L0125;
+		goto L013B;
+	L00BE: //
+		if (local_0053->equals(createString("java/util/HashMap")))
+			goto L010C;
+		goto L013B;
+	L00CB: //
+		if (local_0053->equals(createString("java/util/ArrayList")))
+			goto L0125;
+		goto L013B;
+	L00D8: //
+		if (local_0053->equals(createString("java/util/Stack")))
+			goto L0125;
+		goto L013B;
+	L00E5: //
+		if (local_0053->equals(createString("java/util/Map")))
+			goto L010C;
+		goto L013B;
+	L00F2: //
+		if (local_0053->equals(createString("java/util/Set")))
+			goto L0125;
+		goto L013B;
+	L00FF: //
+		if (local_0053->equals(createString("java/util/Map$Entry")))
+			goto L010C;
+		goto L013B;
+	L010C: //
 		String::__ClassInit();
-		temp_0121 = new StringBuilder(String::valueOf(className_0036.getValue()));
-		className_0036 = temp_0121->append(createString("<TK;TV;>"))->toString();
-		goto L0147;
-	L0131: //
+		temp_0115 = new StringBuilder(String::valueOf(className_0028.getValue()));
+		className_0028 = temp_0115->append(createString("<TK;TV;>"))->toString();
+		goto L013B;
+	L0125: //
 		String::__ClassInit();
-		temp_013A = new StringBuilder(String::valueOf(className_0036.getValue()));
-		className_0036 = temp_013A->append(createString("<TE;>"))->toString();
-	L0147: //
-		temp_014E = new StringBuilder(createString("L"));
-		referencedClasses->add(temp_014E->append(className_0036)->append(createString(";"))->toString());
-	L0161: //
+		temp_012E = new StringBuilder(String::valueOf(className_0028.getValue()));
+		className_0028 = temp_012E->append(createString("<TE;>"))->toString();
+	L013B: //
+		temp_0142 = new StringBuilder(createString("L"));
+		referencedClasses->add(temp_0142->append(className_0028)->append(createString(";"))->toString());
+	L0155: //
 		local_000B += 1;
-	L0164: //
+	L0158: //
 		if ((local_000B) < (local_0008))
 			goto L000F;
 		return;

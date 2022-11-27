@@ -25,17 +25,25 @@ namespace java::util
 	template <class A> class ArrayList;
 	template <class A, class B> class HashMap;
 	class Iterator;
+	template <class A> class TreeSet;
+}
+
+namespace org::borium::javarecompiler
+{
+	class Statics;
 }
 
 namespace org::borium::javarecompiler::classfile
 {
 	class ClassFile;
 	class IndentedOutputStream;
+	class ReferencedClasses;
 }
 
 using namespace java::io;
 using namespace java::lang;
 using namespace java::util;
+using namespace org::borium::javarecompiler;
 using namespace org::borium::javarecompiler::classfile;
 
 namespace org::borium::javarecompiler
@@ -67,6 +75,8 @@ namespace org::borium::javarecompiler
 		virtual void setMainClass(Pointer<String> mainClass);
 		virtual void setOutputPath(Pointer<String> outputPath);
 		virtual void setVisualStudio(Pointer<String> visualStudio);
+		virtual void addNewClass(Pointer<ClassFile> classFile);
+		virtual void addReferencedClasses(Pointer<ArrayList<String>> newClassNames, Pointer<ClassFile> classFile);
 		virtual Pointer<ClassFile> processClassFile(Pointer<String> classFileName);
 		virtual void setCommentLevel(Pointer<String> commentLevel);
 	};

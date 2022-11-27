@@ -15,12 +15,16 @@
 #include "java__util__ArrayList.h"
 #include "java__util__HashMap.h"
 #include "java__util__Iterator.h"
+#include "java__util__TreeSet.h"
+#include "org__borium__javarecompiler__Statics.h"
 #include "org__borium__javarecompiler__classfile__ClassFile.h"
 #include "org__borium__javarecompiler__classfile__IndentedOutputStream.h"
+#include "org__borium__javarecompiler__classfile__ReferencedClasses.h"
 
 using namespace java::io;
 using namespace java::lang;
 using namespace java::util;
+using namespace org::borium::javarecompiler;
 using namespace org::borium::javarecompiler::classfile;
 
 namespace org::borium::javarecompiler
@@ -188,11 +192,17 @@ namespace org::borium::javarecompiler
 		UsageCounterMaintainer maintainer(this, true);
 
 		Pointer<ClassFile> classFile_0022;
+		Pointer<ArrayList<String>> newClassNames_002F;
 		Pointer<StringBuilder> temp_0009;
+		Pointer<ArrayList<Object>> temp_002B;
 		System::__ClassInit();
 		temp_0009 = new StringBuilder(createString("Processing "));
 		System::out->println(temp_0009->append(this->mainClass)->toString());
 		classFile_0022 = this->processClassFile(this->mainClass);
+		this->addNewClass(classFile_0022);
+		temp_002B = new ArrayList<Object>();
+		newClassNames_002F = (ArrayList<String>*)(temp_002B.getValue());
+		this->addReferencedClasses(newClassNames_002F.getValue(), classFile_0022);
 		return;
 	}
 
@@ -244,104 +254,161 @@ namespace org::borium::javarecompiler
 		return;
 	}
 
+	void Recomp::addNewClass(Pointer<ClassFile> classFile)
+	{
+		UsageCounterMaintainer maintainer(this, true);
+
+		Pointer<String> className_0005;
+		Pointer<String> simpleClassName_0023;
+		Pointer<StringBuilder> temp_0038;
+		className_0005 = classFile->getClassName();
+		Recomp::__ClassInit();
+		Recomp::processedClasses->put(className_0005.getValue(), classFile.getValue());
+		Recomp::__ClassInit();
+		Recomp::processedClassNames->add(className_0005.getValue());
+		simpleClassName_0023 = className_0005->substring((className_0005->lastIndexOf(46)) + (1));
+		Recomp::__ClassInit();
+		temp_0038 = new StringBuilder(createString("Duplicate simple class name "));
+		Statics::__ClassInit();
+		Statics::Assert((((Recomp::simpleClassNames->containsKey(simpleClassName_0023.getValue())) ? (0) : (1))) != 0, temp_0038->append(simpleClassName_0023)->toString());
+		Recomp::__ClassInit();
+		Recomp::simpleClassNames->put(simpleClassName_0023.getValue(), className_0005.getValue());
+		return;
+	}
+
+	void Recomp::addReferencedClasses(Pointer<ArrayList<String>> newClassNames, Pointer<ClassFile> classFile)
+	{
+		UsageCounterMaintainer maintainer(this, true);
+
+		Pointer<ReferencedClasses> allReferences_0005;
+		Pointer<String> reference_001D;
+		Pointer<String> ref_0035;
+		Pointer<Iterator> local_000C;
+		Pointer<String> temp_0018;
+		allReferences_0005 = classFile->getReferencedClasses();
+		local_000C = allReferences_0005->getClasses()->iterator();
+		goto L0050;
+	L0011: //
+		temp_0018 = (String*)((local_000C->next()).getValue());
+		temp_0018->checkCast(String::__thisClassStatic);
+		reference_001D = temp_0018;
+		if (!(reference_001D->startsWith(createString("java/"))))
+			goto L002A;
+		goto L0050;
+	L002A: //
+		ref_0035 = reference_001D->replace('/', '.');
+		Recomp::__ClassInit();
+		if (Recomp::processedClasses->containsKey(ref_0035.getValue()))
+			goto L0050;
+		if (newClassNames->contains(ref_0035.getValue()))
+			goto L0050;
+		newClassNames->add(ref_0035.getValue());
+	L0050: //
+		if (local_000C->hasNext())
+			goto L0011;
+		return;
+	}
+
 	Pointer<ClassFile> Recomp::processClassFile(Pointer<String> classFileName)
 	{
-		Pointer<String> classPathFileName_0026;
-		Pointer<String> fileName_0028;
-		Pointer<String> classPath_0040;
-		Pointer<File> file_0061;
-		Pointer<ClassFile> classFile_00D7;
-		Pointer<IndentedOutputStream> stream_010D;
-		Pointer<StringBuilder> temp_001A;
-		Pointer<Iterator> local_002F;
-		Pointer<String> temp_003B;
-		Pointer<StringBuilder> temp_004D;
-		Pointer<File> temp_005C;
-		Pointer<StringBuilder> temp_007A;
-		Pointer<StringBuilder> temp_00A4;
-		Pointer<StringBuilder> temp_00BB;
-		Pointer<RuntimeException> temp_00CA;
-		Pointer<ClassFile> temp_00D2;
-		Pointer<StringBuilder> temp_00FD;
-		Pointer<IndentedOutputStream> temp_0108;
+		UsageCounterMaintainer maintainer(this, true);
+
+		Pointer<String> classPathFileName_0028;
+		Pointer<String> fileName_002A;
+		Pointer<String> classPath_0042;
+		Pointer<File> file_0064;
+		Pointer<ClassFile> classFile_00DE;
+		Pointer<IndentedOutputStream> stream_0115;
+		Pointer<StringBuilder> temp_001B;
+		Pointer<Iterator> local_0031;
+		Pointer<String> temp_003D;
+		Pointer<StringBuilder> temp_004F;
+		Pointer<File> temp_005F;
+		Pointer<StringBuilder> temp_007D;
+		Pointer<StringBuilder> temp_00A9;
+		Pointer<StringBuilder> temp_00C1;
+		Pointer<RuntimeException> temp_00D1;
+		Pointer<ClassFile> temp_00D9;
+		Pointer<StringBuilder> temp_0104;
+		Pointer<IndentedOutputStream> temp_0110;
 		if (!(classFileName->startsWith(createString("java."))))
-			goto L000B;
+			goto L000C;
 		// ARETURN: Type mismatch
 		return (ClassFile*)nullptr;
-	L000B: //
+	L000C: //
 		String::__ClassInit();
-		temp_001A = new StringBuilder(String::valueOf(classFileName->replace('.', '/').getValue()));
-		classPathFileName_0026 = temp_001A->append(createString(".class"))->toString();
-		fileName_0028 = nullptr;
-		local_002F = this->classPaths->iterator();
-		goto L008D;
-	L0034: //
-		temp_003B = (String*)((local_002F->next()).getValue());
-		temp_003B->checkCast(String::__thisClassStatic);
-		classPath_0040 = temp_003B;
+		temp_001B = new StringBuilder(String::valueOf(classFileName->replace('.', '/').getValue()));
+		classPathFileName_0028 = temp_001B->append(createString(".class"))->toString();
+		fileName_002A = nullptr;
+		local_0031 = this->classPaths->iterator();
+		goto L0091;
+	L0036: //
+		temp_003D = (String*)((local_0031->next()).getValue());
+		temp_003D->checkCast(String::__thisClassStatic);
+		classPath_0042 = temp_003D;
 		String::__ClassInit();
-		temp_004D = new StringBuilder(String::valueOf(classPath_0040.getValue()));
-		temp_005C = new File(temp_004D->append(createString("/"))->append(classPathFileName_0026)->toString());
-		file_0061 = temp_005C;
-		if (!(file_0061->exists()))
-			goto L008D;
-		if (!(file_0061->isFile()))
-			goto L008D;
+		temp_004F = new StringBuilder(String::valueOf(classPath_0042.getValue()));
+		temp_005F = new File(temp_004F->append(createString("/"))->append(classPathFileName_0028)->toString());
+		file_0064 = temp_005F;
+		if (!(file_0064->exists()))
+			goto L0091;
+		if (!(file_0064->isFile()))
+			goto L0091;
 		String::__ClassInit();
-		temp_007A = new StringBuilder(String::valueOf(classPath_0040.getValue()));
-		fileName_0028 = temp_007A->append(createString("/"))->append(classPathFileName_0026)->toString();
-		goto L0097;
-	L008D: //
-		if (local_002F->hasNext())
-			goto L0034;
-	L0097: //
-		if ((fileName_0028).getValue() != nullptr)
-			goto L00CE;
+		temp_007D = new StringBuilder(String::valueOf(classPath_0042.getValue()));
+		fileName_002A = temp_007D->append(createString("/"))->append(classPathFileName_0028)->toString();
+		goto L009B;
+	L0091: //
+		if (local_0031->hasNext())
+			goto L0036;
+	L009B: //
+		if ((fileName_002A).getValue() != nullptr)
+			goto L00D5;
 		System::__ClassInit();
-		temp_00A4 = new StringBuilder(createString("Error: "));
-		System::out->println(temp_00A4->append(classFileName)->toString());
-		temp_00BB = new StringBuilder(createString("Class "));
-		temp_00CA = new RuntimeException(temp_00BB->append(classFileName)->append(createString(" not found"))->toString());
-		throw temp_00CA;
-	L00CE: //
-		temp_00D2 = new ClassFile();
-		classFile_00D7 = temp_00D2;
-	L00D7: //
+		temp_00A9 = new StringBuilder(createString("Error: "));
+		System::out->println(temp_00A9->append(classFileName)->toString());
+		temp_00C1 = new StringBuilder(createString("Class "));
+		temp_00D1 = new RuntimeException(temp_00C1->append(classFileName)->append(createString(" not found"))->toString());
+		throw temp_00D1;
+	L00D5: //
+		temp_00D9 = new ClassFile();
+		classFile_00DE = temp_00D9;
+	L00DE: //
 		try
 		{
-			classFile_00D7->read(fileName_0028);
-		L00DD: //
-			goto L00E7;
+			classFile_00DE->read(fileName_002A);
+		L00E4: //
+			goto L00EE;
 		}
-		catch (ClassFormatError* e_00E2)
+		catch (ClassFormatError* e_00E9)
 		{
-			e_00E2->printStackTrace();
+			e_00E9->printStackTrace();
 		}
-		catch (IOException* e_00E2)
+		catch (IOException* e_00E9)
 		{
-			e_00E2->printStackTrace();
+			e_00E9->printStackTrace();
 		}
-	L00E7: //
+	L00EE: //
 		try
 		{
-			Pointer<IndentedOutputStream> stream_010D;
+			Pointer<IndentedOutputStream> stream_0115;
 			String::__ClassInit();
-			temp_00FD = new StringBuilder(String::valueOf(fileName_0028->substring(0, (fileName_0028->length()) - (5)).getValue()));
-			temp_0108 = new IndentedOutputStream(temp_00FD->append(createString("txt"))->toString());
-			stream_010D = temp_0108;
-			classFile_00D7->dump(stream_010D);
-			stream_010D->close();
-		L0119: //
-			goto L0123;
+			temp_0104 = new StringBuilder(String::valueOf(fileName_002A->substring(0, (fileName_002A->length()) - (5)).getValue()));
+			temp_0110 = new IndentedOutputStream(temp_0104->append(createString("txt"))->toString());
+			stream_0115 = temp_0110;
+			classFile_00DE->dump(stream_0115);
+			stream_0115->close();
+		L0121: //
+			goto L012B;
 		}
-		catch (IOException* e_011E)
+		catch (IOException* e_0126)
 		{
-			e_011E->printStackTrace();
+			e_0126->printStackTrace();
 		}
-	L0123: //
+	L012B: //
 		System::__ClassInit();
 		System::out->println(createString("Read complete"));
-		return classFile_00D7;
+		return classFile_00DE;
 	}
 
 	void Recomp::setCommentLevel(Pointer<String> commentLevel)
