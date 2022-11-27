@@ -24,11 +24,16 @@ namespace java::lang
 	{
 		if (this == nullptr)
 			return false;
-		Pointer<String> thisClassName = __thisClass->getName();
 		Pointer<String> instClassName = clazz->getName();
-		if (thisClassName->equals(instClassName))
-			return true;
-		throw new std::exception("InstanceOf not implemented");
+		Pointer<Class> thisClass = __thisClass;
+		while (thisClass.getValue() != nullptr)
+		{
+			Pointer<String> thisClassName = thisClass->getName();
+			if (thisClassName->equals(instClassName))
+				return true;
+			thisClass = thisClass->getParentClass();
+		}
+		return false;
 	}
 
 }

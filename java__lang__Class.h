@@ -15,6 +15,10 @@ namespace java::lang
 		{
 			return createString(thisName);
 		}
+		Pointer<Class> getParentClass()
+		{
+			return parent;
+		}
 	private:
 		CString thisName;
 		Pointer<Class> parent;
