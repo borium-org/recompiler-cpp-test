@@ -9,7 +9,6 @@ namespace java::lang
 		double value;
 		INT64* ptr = (INT64*)&value;
 		*ptr = bits;
-		throw new std::exception("Double: longToBits: Verify bit ordering");
 		return value;
 	}
 
