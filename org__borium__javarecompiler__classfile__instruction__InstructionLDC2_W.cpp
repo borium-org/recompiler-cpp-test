@@ -64,6 +64,7 @@ namespace org::borium::javarecompiler::classfile::instruction
 		Pointer<StringBuilder> temp_006A;
 		Pointer<StringBuilder> temp_0097;
 		className_0010 = this->getClass()->getSimpleName()->substring(11)->toLowerCase();
+		ConstantLong::__ClassInit();
 		if (!(this->constant->instanceOf(ConstantLong::__thisClassStatic)))
 			goto L004F;
 		temp_001E = (ConstantLong*)((this->constant).getValue());
@@ -74,6 +75,7 @@ namespace org::borium::javarecompiler::classfile::instruction
 		stream->iprintln(temp_002B->append(createString(" "))->append(this->index)->append(createString(" "))->append(constantLong_0022->value)->toString());
 		goto L00BE;
 	L004F: //
+		ConstantDouble::__ClassInit();
 		if (!(this->constant->instanceOf(ConstantDouble::__thisClassStatic)))
 			goto L008E;
 		temp_005D = (ConstantDouble*)((this->constant).getValue());
