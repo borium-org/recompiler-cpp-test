@@ -193,8 +193,12 @@ namespace org::borium::javarecompiler
 
 		Pointer<ClassFile> classFile_0022;
 		Pointer<ArrayList<String>> newClassNames_002F;
+		Pointer<String> newClassName_0041;
 		Pointer<StringBuilder> temp_0009;
 		Pointer<ArrayList<Object>> temp_002B;
+		Pointer<String> temp_003D;
+		Pointer<StringBuilder> temp_0053;
+		Pointer<StringBuilder> temp_006C;
 		System::__ClassInit();
 		temp_0009 = new StringBuilder(createString("Processing "));
 		System::out->println(temp_0009->append(this->mainClass)->toString());
@@ -203,6 +207,27 @@ namespace org::borium::javarecompiler
 		temp_002B = new ArrayList<Object>();
 		newClassNames_002F = (ArrayList<String>*)(temp_002B.getValue());
 		this->addReferencedClasses(newClassNames_002F.getValue(), classFile_0022);
+		goto L008A;
+	L0038: //
+		temp_003D = (String*)((newClassNames_002F->remove(0)).getValue());
+		temp_003D->checkCast(String::__thisClassStatic);
+		newClassName_0041 = temp_003D;
+		if ((newClassName_0041->indexOf(36)) < 0)
+			goto L0063;
+		System::__ClassInit();
+		temp_0053 = new StringBuilder(createString("Skipping nested class "));
+		System::out->println(temp_0053->append(newClassName_0041)->toString());
+		goto L008A;
+	L0063: //
+		System::__ClassInit();
+		temp_006C = new StringBuilder(createString("Processing "));
+		System::out->println(temp_006C->append(newClassName_0041)->toString());
+		classFile_0022 = this->processClassFile(newClassName_0041);
+		this->addNewClass(classFile_0022);
+		this->addReferencedClasses(newClassNames_002F.getValue(), classFile_0022);
+	L008A: //
+		if ((newClassNames_002F->size()) > 0)
+			goto L0038;
 		return;
 	}
 
@@ -298,7 +323,7 @@ namespace org::borium::javarecompiler
 	L002A: //
 		ref_0035 = reference_001D->replace('/', '.');
 		Recomp::__ClassInit();
-		if (Recomp::processedClasses->containsKey(ref_0035.getValue()))
+		if (Recomp::processedClassNames->contains(ref_0035.getValue()))
 			goto L0050;
 		if (newClassNames->contains(ref_0035.getValue()))
 			goto L0050;
@@ -406,8 +431,6 @@ namespace org::borium::javarecompiler
 			e_0126->printStackTrace();
 		}
 	L012B: //
-		System::__ClassInit();
-		System::out->println(createString("Read complete"));
 		return classFile_00DE;
 	}
 
