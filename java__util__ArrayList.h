@@ -65,9 +65,10 @@ namespace java::util
 		}
 		virtual bool contains(Pointer<T> element)
 		{
+			Object* object2 = (Object*)element.getValue();
 			for (Pointer<Object> el : data)
 			{
-				if ((T*)el.getValue() == (T*)element.getValue())
+				if (el.getValue()->equals(object2))
 					return true;
 			}
 			return false;
