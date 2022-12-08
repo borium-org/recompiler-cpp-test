@@ -80,6 +80,11 @@ namespace java::lang
 			replaced.Replace(from, to);
 			return new String(replaced);
 		}
+		virtual bool operator < (Object* other) const
+		{
+			String* string2 = (String*)other;
+			return data < string2->data;
+		}
 		virtual Pointer<String> substring(int first);
 		virtual Pointer<String> substring(int first, int last);
 		virtual int indexOf(char ch)
@@ -119,7 +124,14 @@ namespace java::lang
 		{
 			return data;
 		}
+
+		operator Object* () const
+		{
+			return (Object*)this;
+		}
+
 	private:
 		CString data;
 	};
+
 }

@@ -2,6 +2,7 @@
 
 #include "java__lang__Object.h"
 #include "java__util__Iterator.h"
+#include "java__util__NoSuchElementException.h"
 
 using namespace java::lang;
 
@@ -13,50 +14,81 @@ namespace java::util
 		class Itr : public Iterator
 		{
 		public:
-			Itr(std::set<Pointer<Object>>* set)
+			Itr(std::vector<Pointer<Object>>& _data)
+				: data(_data)
 			{
-				data = set;
-				iter = data->begin();
+				cursor = 0;
 			}
 			virtual Pointer<Object> next()
 			{
-				Pointer<Object> obj = *iter;
-				iter++;
-				return obj;
+				if (!hasNext())
+					throw new NoSuchElementException();
+				Pointer<Object> element = data[cursor++];
+				return element;
 			}
 			virtual bool hasNext()
 			{
-				return iter != data->end();
+				return cursor < data.size();
 			}
 		private:
-			std::set<Pointer<Object>>* data;
-			std::set<Pointer<Object>>::iterator iter;
+			std::vector<Pointer<Object>>& data;
+			int cursor;
 		};
 	public:
 		virtual Pointer<Iterator> iterator()
 		{
-			return new Itr(&data);
+			return new Itr(data);
 		}
 		virtual void add(Pointer<T> element)
 		{
-			Pointer<Object> object = element.getValue();
-			data.insert(object);
+			Object* object2 = (Object*)element.getValue();
+			bool added = false;
+			for (auto iter = data.begin(); iter != data.end(); ++iter)
+			{
+				Object* object1 = (Object*)(*iter).getValue();
+				if (object1->equals(object2))
+				{
+					added = true;
+					break;
+				}
+				if (*object1 < object2)
+					continue;
+				data.insert(iter, object2);
+				added = true;
+				break;
+			}
+			if (!added)
+				data.insert(data.end(), object2);
 		}
 		virtual void remove(Pointer<T> element)
 		{
-			Pointer<Object> object = element.getValue();
-			data.erase(object);
+			Object* object2 = (Object*)element.getValue();
+			for (auto iter = data.begin(); iter != data.end(); ++iter)
+			{
+				Object* object1 = (Object*)(*iter).getValue();
+				if (object1->equals(object2))
+				{
+					data.erase(iter);
+					break;
+				}
+			}
 		}
 		virtual bool contains(Pointer<T> element)
 		{
-			Pointer<Object> object = element.getValue();
-			return data.contains(object);
+			Object* object2 = (Object*)element.getValue();
+			for (auto iter = data.begin(); iter != data.end(); ++iter)
+			{
+				Object* object1 = (Object*)(*iter).getValue();
+				if (object1->equals(object2))
+					return true;
+			}
+			return false;
 		}
 		virtual int size()
 		{
 			return (int)data.size();
 		}
 	private:
-		std::set<Pointer<Object>> data;
+		std::vector<Pointer<Object>> data;
 	};
 }
