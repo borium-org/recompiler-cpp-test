@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "java__lang__String.h"
+#include "java__lang__Class.h"
 
 namespace java::lang
 {
@@ -8,8 +9,25 @@ namespace java::lang
 		return new String(string);
 	}
 
+	void String::__ClassInit()
+	{
+		static bool classInitialized = false;
+		if (classInitialized)
+			return;
+		classInitialized = true;
+
+		__thisClassStatic = new Class("java::lang::String",
+			java::lang::Object::__thisClassStatic);
+
+		return;
+	}
+
+
 	String::String(Pointer<JavaRawArray<byte>> bytes, Pointer<String> encoding)
 	{
+		__ClassInit();
+		__thisClass = __thisClassStatic;
+
 		if (encoding->operator CString() != "UTF-8")
 			throw new std::exception("UTF-8 encoding expected");
 		for (int i = 0; i < bytes->length; i++)
@@ -26,11 +44,6 @@ namespace java::lang
 			h = 31 * h + (v & 0xff);
 		}
 		return h;
-	}
-
-	bool String::equals(const char* other)
-	{
-		return data == other;
 	}
 
 	bool String::equals(Pointer<String> other)

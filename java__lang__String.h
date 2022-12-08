@@ -10,12 +10,18 @@ namespace java::lang
 	public:
 		String()
 		{
+			__ClassInit();
+			__thisClass = __thisClassStatic;
 		}
 		String(const char* string)
 		{
+			__ClassInit();
+			__thisClass = __thisClassStatic;
+
 			data = string;
 		}
 		String(Pointer<JavaRawArray<byte>> bytes, Pointer<String> encoding);
+		static void __ClassInit();
 		static Pointer<String> valueOf(Pointer<String> string)
 		{
 			return string;
@@ -39,7 +45,6 @@ namespace java::lang
 		{
 			return data.GetLength();
 		}
-		virtual bool equals(const char* other);
 		virtual bool equals(Pointer<String> other);
 		virtual bool contains(Pointer<String> part)
 		{

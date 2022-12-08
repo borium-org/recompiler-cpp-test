@@ -15,6 +15,7 @@ namespace java::lang
 	class Pointer
 	{
 		template<class T> friend class JavaArray;
+		friend class String;
 	public:
 		Pointer()
 		{
@@ -58,7 +59,7 @@ namespace java::lang
 			//	TRACE("Object %p %s Type: nullptr\n", this, typeid(this).name());
 			assign((T*)object);
 		}
-		T* operator -> ()
+		T* operator -> () const
 		{
 			return (T*)pointer;
 		}
@@ -116,6 +117,9 @@ namespace java::lang
 	public:
 		Object()
 		{
+			__ClassInit();
+			__thisClass = __thisClassStatic;
+
 			usageCounter = 0;
 			//		TRACE("Object::Object(%p)\n", this);
 		}
@@ -140,6 +144,7 @@ namespace java::lang
 			//TODO throw new std::exception("CheckCast not implemented");
 		}
 		bool instanceOf(Pointer<Class> clazz);
+		virtual bool equals(Pointer<Object> other);
 		virtual bool operator < (Object* other) const
 		{
 			return false;

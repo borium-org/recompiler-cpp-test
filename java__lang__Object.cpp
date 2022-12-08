@@ -36,4 +36,21 @@ namespace java::lang
 		return false;
 	}
 
+	bool Object::equals(Pointer<Object> other)
+	{
+		if (other.getValue() == nullptr)
+			return false;
+		CString thisClassName = this->__thisClass->getName()->operator CString();
+		CString thatClassName = other->__thisClass->getName()->operator CString();
+		CString stringClassName = String::__thisClassStatic->getName()->operator CString();
+		if (thisClassName == stringClassName && thatClassName == stringClassName)
+		{
+			String* thisString = (String*)this;
+			String* thatString = (String*)other.getValue();
+			return thisString->equals(thatString);
+		}
+
+		return this == other.getValue();
+	}
+
 }
