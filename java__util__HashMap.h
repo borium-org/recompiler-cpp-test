@@ -13,53 +13,76 @@ namespace java::util
 		HashMap()
 		{
 		}
-		//	virtual ~HashMap();
-		//	//{
-		//	//	while (map.GetCount() > 0)
-		//	//	{
-		//	//		POSITION pos = map.GetStartPosition();
-		//	//		Pointer<K> key;
-		//	//		Pointer<V> value;
-		//	//		map.GetNextAssoc(pos, key, value);
-		//	//		map.RemoveKey(key);
-		//	//		// make sure these Pointer objects are deactivated
-		//	//		key = nullptr;
-		//	//		value = nullptr;
-		//	//	}
-		//	//}
 		virtual Pointer<V> put(Pointer<K> key, Pointer<V> value)
 		{
-			Pointer<V> previous;
-			if (map.contains(key))
-				previous = map[key];
-			map[key] = value;
-			return previous;
+			Pointer<V> element;
+			Object* object2 = (Object*)key.getValue();
+			if (map.size() == 0)
+				map[key] = value;
+			else
+			{
+				for (auto iter = map.begin(); iter != map.end(); ++iter)
+				{
+					Object* object1 = (Object*)iter->first.getValue();
+					if (object1->equals(object2))
+					{
+						element = iter->second;
+						iter->second = value;
+						break;
+					}
+				}
+			}
+			return element;
 		}
 		virtual Pointer<V> get(Pointer<K> key)
 		{
-			if (!map.contains(key))
-				return (V*)nullptr;
-			return map[key];
+			Pointer<V> element;
+			Object* object2 = (Object*)key.getValue();
+			for (auto iter = map.begin(); iter != map.end(); ++iter)
+			{
+				Object* object1 = (Object*)iter->first.getValue();
+				if (object1->equals(object2))
+				{
+					element = iter->second;
+					break;
+				}
+			}
+			return element;
 		}
 		virtual Pointer<V> remove(Pointer<K> key)
 		{
 			Pointer<V> removed;
-			if (map.contains(key))
+			Object* object2 = (Object*)key.getValue();
+			for (auto iter = map.begin(); iter != map.end(); ++iter)
 			{
-				removed = map[key];
-				map.erase(key);
+				Object* object1 = (Object*)iter->first.getValue();
+				if (object1->equals(object2))
+				{
+					removed = iter->second;
+					map.erase(iter);
+					break;
+				}
 			}
 			return removed;
 		}
 		virtual bool containsKey(Pointer<K> key)
 		{
-			return map.contains(key);
+			Object* object2 = (Object*)key.getValue();
+			for (auto iter = map.begin(); iter != map.end(); ++iter)
+			{
+				Object* object1 = (Object*)iter->first.getValue();
+				if (object1->equals(object2))
+					return true;
+			}
+			return false;
 		}
 		virtual bool containsValue(Pointer<V> value)
 		{
 			for (auto iter = map.begin(); iter != map.end(); ++iter)
 			{
-				if (iter->second.getValue() == value.getValue())
+				Object* object1 = (Object*)iter->second.getValue();
+				Object* object2 = (Object*)value.getValue();
+				if (object1->equals(object2))
 					return true;
 			}
 			return false;
