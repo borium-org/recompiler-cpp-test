@@ -139,7 +139,7 @@ namespace java::lang
 		{
 			return __thisClass;
 		}
-		virtual void checkCast(Pointer<Class> clazz)
+		void checkCast(Pointer<Class> clazz)
 		{
 			//TODO throw new std::exception("CheckCast not implemented");
 		}

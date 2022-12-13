@@ -40,11 +40,17 @@ namespace org::borium::javarecompiler::classfile
 	class ReferencedClasses;
 }
 
+namespace org::borium::javarecompiler::cplusplus
+{
+	class CppClass;
+}
+
 using namespace java::io;
 using namespace java::lang;
 using namespace java::util;
 using namespace org::borium::javarecompiler;
 using namespace org::borium::javarecompiler::classfile;
+using namespace org::borium::javarecompiler::cplusplus;
 
 namespace org::borium::javarecompiler
 {
@@ -66,6 +72,7 @@ namespace org::borium::javarecompiler
 		Pointer<ArrayList<String>> classPaths;
 		Pointer<String> outputPath;
 		Pointer<String> visualStudio;
+		Pointer<ArrayList<CppClass>> generatedClasses;
 
 		static void __ClassInit();
 		Recomp();
@@ -77,6 +84,7 @@ namespace org::borium::javarecompiler
 		virtual void setVisualStudio(Pointer<String> visualStudio);
 		virtual void addNewClass(Pointer<ClassFile> classFile);
 		virtual void addReferencedClasses(Pointer<ArrayList<String>> newClassNames, Pointer<ClassFile> classFile);
+		virtual void generateClasses();
 		virtual Pointer<ClassFile> processClassFile(Pointer<String> classFileName);
 		virtual void setCommentLevel(Pointer<String> commentLevel);
 	};

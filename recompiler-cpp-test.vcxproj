@@ -158,7 +158,9 @@
     <ClInclude Include="java__io__FileInputStream.h" />
     <ClInclude Include="java__io__IOException.h" />
     <ClInclude Include="java__io__PrintStream.h" />
+    <ClInclude Include="java__io__Serializable.h" />
     <ClInclude Include="java__io__UnsupportedEncodingException.h" />
+    <ClInclude Include="java__lang__Character.h" />
     <ClInclude Include="java__lang__Class.h" />
     <ClInclude Include="java__lang__ClassFormatError.h" />
     <ClInclude Include="java__lang__Double.h" />
@@ -168,15 +170,18 @@
     <ClInclude Include="java__lang__Object.h" />
     <ClInclude Include="java__lang__RuntimeException.h" />
     <ClInclude Include="java__lang__String.h" />
+    <ClInclude Include="java__lang__StringBuffer.h" />
     <ClInclude Include="java__lang__StringBuilder.h" />
     <ClInclude Include="java__lang__System.h" />
     <ClInclude Include="java__lang__Throwable.h" />
     <ClInclude Include="java__util__ArrayList.h" />
+    <ClInclude Include="java__util__Arrays.h" />
     <ClInclude Include="java__util__HashMap.h" />
     <ClInclude Include="java__util__Iterator.h" />
     <ClInclude Include="java__util__List.h" />
     <ClInclude Include="java__util__Map.h" />
     <ClInclude Include="java__util__NoSuchElementException.h" />
+    <ClInclude Include="java__util__Stack.h" />
     <ClInclude Include="java__util__TreeSet.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeCode.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__attribute__AttributeConstantValue.h" />
@@ -200,6 +205,7 @@
     <ClInclude Include="org__borium__javarecompiler__classfile__ClassField.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__ClassFile.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__ClassMethod.h" />
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassTypeSimplifier.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__Constant.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.h" />
@@ -219,6 +225,7 @@
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantPool.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.h" />
+    <ClInclude Include="org__borium__javarecompiler__classfile__ExecutionContext.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__IndentedOutputStream.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__instruction__Instruction.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionAALOAD.h" />
@@ -378,6 +385,17 @@
     <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLocalVariableIndex.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__instruction__InstructionWithTypeIndex.h" />
     <ClInclude Include="org__borium__javarecompiler__classfile__ReferencedClasses.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppClass.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppExecutionContext.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppField.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppMethod.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__ExceptionHandler.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__ExceptionHandlers.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__JavaTypeConverter.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__LocalVariable.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__LocalVariables.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__Statement.h" />
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__TernaryOperator.h" />
     <ClInclude Include="org__borium__javarecompiler__Recomp.h" />
     <ClInclude Include="org__borium__javarecompiler__Statics.h" />
     <ClInclude Include="stdafx.h" />
@@ -388,6 +406,7 @@
   <ItemGroup>
     <ClCompile Include="java__io__File.cpp" />
     <ClCompile Include="java__io__PrintStream.cpp" />
+    <ClCompile Include="java__lang__Character.cpp" />
     <ClCompile Include="java__lang__Class.cpp" />
     <ClCompile Include="java__lang__Double.cpp" />
     <ClCompile Include="java__lang__Object.cpp" />
@@ -417,6 +436,7 @@
     <ClCompile Include="org__borium__javarecompiler__classfile__ClassField.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__ClassFile.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__ClassMethod.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassTypeSimplifier.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__Constant.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantClassInfo.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantDouble.cpp" />
@@ -436,6 +456,7 @@
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantPool.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantStringInfo.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__constants__ConstantUtf8Info.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__classfile__ExecutionContext.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__IndentedOutputStream.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__instruction__Instruction.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionAALOAD.cpp" />
@@ -595,6 +616,17 @@
     <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithLocalVariableIndex.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__instruction__InstructionWithTypeIndex.cpp" />
     <ClCompile Include="org__borium__javarecompiler__classfile__ReferencedClasses.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppClass.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppExecutionContext.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppField.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppMethod.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__ExceptionHandler.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__ExceptionHandlers.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__JavaTypeConverter.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__LocalVariable.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__LocalVariables.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__Statement.cpp" />
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__TernaryOperator.cpp" />
     <ClCompile Include="org__borium__javarecompiler__Recomp.cpp" />
     <ClCompile Include="org__borium__javarecompiler__Statics.cpp" />
     <ClCompile Include="stdafx.cpp">

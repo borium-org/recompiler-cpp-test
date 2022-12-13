@@ -16,8 +16,14 @@ namespace org::borium::javarecompiler::classfile
 	class IndentedOutputStream;
 }
 
+namespace org::borium::javarecompiler::cplusplus
+{
+	class JavaTypeConverter;
+}
+
 using namespace java::lang;
 using namespace org::borium::javarecompiler::classfile;
+using namespace org::borium::javarecompiler::cplusplus;
 
 namespace org::borium::javarecompiler
 {
@@ -42,6 +48,7 @@ namespace org::borium::javarecompiler
 		static Pointer<String> hexString(int value, int length);
 		static bool isTemplate(Pointer<String> type);
 		static Pointer<String> javaToCppClass(Pointer<String> javaClassName);
+		static Pointer<String> parseJavaReturnType(Pointer<String> javaMethodSignature);
 		static Pointer<String> removeJavaArray(Pointer<String> javaArray);
 		static Pointer<String> removePointerWrapper(Pointer<String> wrappedObject);
 		static void parseClass(Pointer<String> descriptor, Pointer<JavaRawArray<int>> data);

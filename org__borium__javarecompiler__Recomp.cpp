@@ -20,12 +20,14 @@
 #include "org__borium__javarecompiler__classfile__ClassFile.h"
 #include "org__borium__javarecompiler__classfile__IndentedOutputStream.h"
 #include "org__borium__javarecompiler__classfile__ReferencedClasses.h"
+#include "org__borium__javarecompiler__cplusplus__CppClass.h"
 
 using namespace java::io;
 using namespace java::lang;
 using namespace java::util;
 using namespace org::borium::javarecompiler;
 using namespace org::borium::javarecompiler::classfile;
+using namespace org::borium::javarecompiler::cplusplus;
 
 namespace org::borium::javarecompiler
 {
@@ -77,8 +79,11 @@ namespace org::borium::javarecompiler
 		UsageCounterMaintainer maintainer(this, false);
 
 		Pointer<ArrayList<Object>> temp_0009;
+		Pointer<ArrayList<Object>> temp_0014;
 		temp_0009 = new ArrayList<Object>();
 		this->classPaths = (ArrayList<String>*)temp_0009.getValue();
+		temp_0014 = new ArrayList<Object>();
+		this->generatedClasses = (ArrayList<CppClass>*)temp_0014.getValue();
 		return;
 	}
 
@@ -228,6 +233,7 @@ namespace org::borium::javarecompiler
 	L008A: //
 		if ((newClassNames_002F->size()) > 0)
 			goto L0038;
+		this->generateClasses();
 		return;
 	}
 
@@ -331,6 +337,39 @@ namespace org::borium::javarecompiler
 	L0050: //
 		if (local_000C->hasNext())
 			goto L0011;
+		return;
+	}
+
+	void Recomp::generateClasses()
+	{
+		UsageCounterMaintainer maintainer(this, true);
+
+		Pointer<String> className_0014;
+		Pointer<CppClass> cppClass_003D;
+		Pointer<Iterator> local_0006;
+		Pointer<String> temp_0010;
+		Pointer<StringBuilder> temp_001E;
+		Pointer<ClassFile> temp_0036;
+		Pointer<CppClass> temp_0039;
+		Recomp::__ClassInit();
+		local_0006 = Recomp::processedClassNames->iterator();
+		goto L0046;
+	L000A: //
+		temp_0010 = (String*)((local_0006->next()).getValue());
+		temp_0010->checkCast(String::__thisClassStatic);
+		className_0014 = temp_0010;
+		System::__ClassInit();
+		temp_001E = new StringBuilder(createString("Generating "));
+		System::out->println(temp_001E->append(className_0014)->toString());
+		Recomp::__ClassInit();
+		temp_0036 = (ClassFile*)((Recomp::processedClasses->get(className_0014.getValue())).getValue());
+		temp_0036->checkCast(ClassFile::__thisClassStatic);
+		temp_0039 = new CppClass(temp_0036);
+		cppClass_003D = temp_0039;
+		this->generatedClasses->add(cppClass_003D.getValue());
+	L0046: //
+		if (local_0006->hasNext())
+			goto L000A;
 		return;
 	}
 

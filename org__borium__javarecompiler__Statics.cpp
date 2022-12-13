@@ -8,9 +8,11 @@
 #include "java__lang__String.h"
 #include "java__lang__StringBuilder.h"
 #include "org__borium__javarecompiler__classfile__IndentedOutputStream.h"
+#include "org__borium__javarecompiler__cplusplus__JavaTypeConverter.h"
 
 using namespace java::lang;
 using namespace org::borium::javarecompiler::classfile;
+using namespace org::borium::javarecompiler::cplusplus;
 
 namespace org::borium::javarecompiler
 {
@@ -363,6 +365,142 @@ namespace org::borium::javarecompiler
 		split_0007 = (JavaArray<String>*)(javaClassName->split(createString("[.]")).getValue());
 		String::__ClassInit();
 		return String::join(createString("::"), split_0007.getValue());
+	}
+
+	Pointer<String> Statics::parseJavaReturnType(Pointer<String> javaMethodSignature)
+	{
+		__ClassInit();
+
+		int pos_0007 = 0;
+		Pointer<String> type_001E;
+		int dimensions_0020 = 0;
+		Pointer<String> returnType_003A;
+		bool rawType_003D = false;
+		Pointer<JavaTypeConverter> temp_00F5;
+		Pointer<StringBuilder> temp_0121;
+		Pointer<StringBuilder> temp_013E;
+		Pointer<StringBuilder> temp_0162;
+		pos_0007 = javaMethodSignature->indexOf(41);
+		Statics::__ClassInit();
+		Statics::Assert(((((pos_0007) >= (1)) ? (1) : (0))) != 0, createString("Method with no return type"));
+		type_001E = javaMethodSignature->substring((pos_0007) + (1));
+		dimensions_0020 = 0;
+		goto L002C;
+	L0023: //
+		dimensions_0020 += 1;
+		type_001E = type_001E->substring(1);
+	L002C: //
+		if ((type_001E->charAt(0)) == (91))
+			goto L0023;
+		returnType_003A = createString("");
+		rawType_003D = 1;
+		switch (type_001E->charAt(0))
+		{
+		case 66:
+			goto L00B4;
+		case 67:
+			goto L00BB;
+		case 68:
+			goto L00C2;
+		case 69:
+			goto L011A;
+		case 70:
+			goto L00C9;
+		case 71:
+			goto L011A;
+		case 72:
+			goto L011A;
+		case 73:
+			goto L00D0;
+		case 74:
+			goto L00D7;
+		case 75:
+			goto L011A;
+		case 76:
+			goto L00EC;
+		case 77:
+			goto L011A;
+		case 78:
+			goto L011A;
+		case 79:
+			goto L011A;
+		case 80:
+			goto L011A;
+		case 81:
+			goto L011A;
+		case 82:
+			goto L011A;
+		case 83:
+			goto L00DE;
+		case 84:
+			goto L0100;
+		case 85:
+			goto L011A;
+		case 86:
+			goto L0113;
+		case 87:
+			goto L011A;
+		case 88:
+			goto L011A;
+		case 89:
+			goto L011A;
+		case 90:
+			goto L00E5;
+		default:
+			goto L011A;
+		}
+	L00B4: //
+		returnType_003A = createString("byte");
+		goto L012E;
+	L00BB: //
+		returnType_003A = createString("char");
+		goto L012E;
+	L00C2: //
+		returnType_003A = createString("double");
+		goto L012E;
+	L00C9: //
+		returnType_003A = createString("float");
+		goto L012E;
+	L00D0: //
+		returnType_003A = createString("int");
+		goto L012E;
+	L00D7: //
+		returnType_003A = createString("INT64");
+		goto L012E;
+	L00DE: //
+		returnType_003A = createString("short");
+		goto L012E;
+	L00E5: //
+		returnType_003A = createString("bool");
+		goto L012E;
+	L00EC: //
+		rawType_003D = 0;
+		temp_00F5 = new JavaTypeConverter(type_001E, false);
+		returnType_003A = temp_00F5->getCppType();
+		goto L012E;
+	L0100: //
+		rawType_003D = 0;
+		returnType_003A = type_001E->substring(1, (type_001E->length()) - (1));
+		goto L012E;
+	L0113: //
+		returnType_003A = createString("void");
+		goto L012E;
+	L011A: //
+		temp_0121 = new StringBuilder(createString("Unhandled type "));
+		Statics::__ClassInit();
+		Statics::Assert(false, temp_0121->append(type_001E)->toString());
+	L012E: //
+		temp_013E = new StringBuilder(createString("Too many dimensions: "));
+		Statics::__ClassInit();
+		Statics::Assert(((((dimensions_0020) <= (1)) ? (1) : (0))) != 0, temp_013E->append(dimensions_0020)->toString());
+		if ((dimensions_0020) <= 0)
+			goto L017C;
+		String::__ClassInit();
+		temp_0162 = new StringBuilder(String::valueOf(((rawType_003D) ? (((Pointer<String>) new String("JavaRawArray"))) : (((Pointer<String>) new String("JavaArray")))).getValue()));
+		returnType_003A = temp_0162->append(createString("<"))->append(returnType_003A)->append(createString(">"))->toString();
+		dimensions_0020 += -1;
+	L017C: //
+		return returnType_003A;
 	}
 
 	Pointer<String> Statics::removeJavaArray(Pointer<String> javaArray)

@@ -26,6 +26,9 @@
     <Filter Include="org.borium.javarecompiler.classfile.instruction">
       <UniqueIdentifier>{8fd010d2-84ec-4a04-ac18-05dd3d04b148}</UniqueIdentifier>
     </Filter>
+    <Filter Include="org.borium.javarecompiler.cplusplus">
+      <UniqueIdentifier>{43f66f34-a417-4c51-8181-a9abdd0260a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="java__lang__Class.h">
@@ -712,6 +715,60 @@
     <ClInclude Include="java__util__TreeSet.h">
       <Filter>java.util</Filter>
     </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppClass.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppExecutionContext.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppField.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__CppMethod.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__ExceptionHandler.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__ExceptionHandlers.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__JavaTypeConverter.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__LocalVariable.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__LocalVariables.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__Statement.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__cplusplus__TernaryOperator.h">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__Character.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__lang__StringBuffer.h">
+      <Filter>java.lang</Filter>
+    </ClInclude>
+    <ClInclude Include="java__io__Serializable.h">
+      <Filter>java.io</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__Arrays.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="java__util__Stack.h">
+      <Filter>java.util</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ClassTypeSimplifier.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
+    <ClInclude Include="org__borium__javarecompiler__classfile__ExecutionContext.h">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="java__io__File.cpp">
@@ -1343,6 +1400,48 @@
       <Filter>org.borium.javarecompiler.classfile</Filter>
     </ClCompile>
     <ClCompile Include="org__borium__javarecompiler__classfile__ReferencedClasses.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppClass.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppExecutionContext.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppField.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__CppMethod.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__ExceptionHandler.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__ExceptionHandlers.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__JavaTypeConverter.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__LocalVariable.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__LocalVariables.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__Statement.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__cplusplus__TernaryOperator.cpp">
+      <Filter>org.borium.javarecompiler.cplusplus</Filter>
+    </ClCompile>
+    <ClCompile Include="java__lang__Character.cpp">
+      <Filter>java.lang</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ClassTypeSimplifier.cpp">
+      <Filter>org.borium.javarecompiler.classfile</Filter>
+    </ClCompile>
+    <ClCompile Include="org__borium__javarecompiler__classfile__ExecutionContext.cpp">
       <Filter>org.borium.javarecompiler.classfile</Filter>
     </ClCompile>
   </ItemGroup>
